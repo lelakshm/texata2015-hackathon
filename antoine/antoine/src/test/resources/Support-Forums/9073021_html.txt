@@ -1,0 +1,23 @@
+
+Title:
+IP routing not enabled
+
+URL:
+https://supportforums.cisco.com/discussion/9073021/ip-routing-not-enabled
+
+Statistics: Replies: 4   Avg. Rating: Views: 10190   Votes: 0 Shares: 0
+
+Description: petnan / Nov 7th, 2001
+Hi folks! A simple problem ( I hope so..) I've configured Cisco 2600, IOS version 12.1(6) with IP addresses for the 3 interfaces (e0,e1 and s0. When I enter the router rip command. The message displayed in "IP routing not enabled". Anyhelp would be appreciated. I have this problem too. 0 votes
+
+Reply: ggehle@phelpsdo... / Wed, 11/07/2001 - 12:11
+Try entering "ip routing" in your config to see of that makes a difference.
+
+Reply: jscinocca / Wed, 11/07/2001 - 12:41
+from config term type "routing ip"
+
+Reply: jscinocca / Wed, 11/07/2001 - 13:04
+i meant ip routing
+
+Reply: williamkim / Wed, 11/07/2001 - 15:31
+Remember Without enabling (ip routing) your routing protocol will not work. Can I ask why are you using RIP? or RIP2 ??

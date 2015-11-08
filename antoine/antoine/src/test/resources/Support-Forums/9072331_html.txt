@@ -1,0 +1,26 @@
+
+Title:
+How to trace the source of a ip packet?
+
+URL:
+https://supportforums.cisco.com/discussion/9072331/how-trace-source-ip-packet
+
+Statistics: Replies: 5   Avg. Rating: Views: 326   Votes: 0 Shares: 0
+
+Description: c.chunxia / Nov 6th, 2001
+On a router,how can I know the interface which a packet come in(I know the source ip address of the packet)?I use access-list and log to do it,but it's a slow method.Can I use debug or something to do it? thank you! I have this problem too. 0 votes
+
+Reply: mariont / Tue, 11/06/2001 - 02:40
+Use the command "trace" in router.
+
+Reply: draoul / Tue, 11/06/2001 - 04:09
+Do you use the flag log-input with your acl ? See http://www.cisco.com/warp/public/707/22.html#3g
+
+Reply: marcusl / Tue, 11/06/2001 - 05:37
+You can use the 'debug ip packet' command. Please be careful with this command on heavly loaded routers tough. The best practice would be to create a standard access-list with 'access-list 73 permit 10.0.0.1 0.0.0.0' or whatever ip address /subnet you want to track. Use this list in the debug command, 'debug ip packet 73' to narrow down the debug information.... /M
+
+Reply: usmarine@devil-... / Wed, 11/07/2001 - 07:39
+You can do a tracert and find the source ip address. Look at your routing tables and find the address that the packet is received on. Then look at you running config to find what port you have assigned to that ip address.
+
+Reply: jdiazbacolor / Wed, 07/31/2013 - 19:06
+You can use sh ip route then the network I'd of the packet that your want to trace.... Sh ip route 10.10.10.0 Sent from Cisco Technical Support iPad App

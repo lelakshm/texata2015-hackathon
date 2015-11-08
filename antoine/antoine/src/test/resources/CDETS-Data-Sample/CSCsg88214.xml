@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CDETS xmlns:ns2="http://www.w3.org/1999/xlink" xmlns="cdetsng">
+    <Defect id="CSCsg88214" ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">
+        <Field name="Assigned Date">10/03/2007 10:36:14</Field>
+        <Field name="Assigner">gwohlenb</Field>
+        <Field name="BCQURL" ns2:href="http://wwwin-engineering.cisco.com/manmukhe/triage-autosuggest/">
+            http://wwwin-engineering.cisco.com/manmukhe/triage-autosuggest/
+        </Field>
+        <Field name="BCQURLOwner">manmukhe</Field>
+        <Field name="BTK-security-complete">Y</Field>
+        <Field name="BadCodeFlag">N</Field>
+        <Field name="Care-Update">N</Field>
+        <Field name="Class">CSC.ena</Field>
+        <Field name="Component">asr9k-eoam</Field>
+        <Field name="DE Priority Desc">very low</Field>
+        <Field name="DE-manager">rsuciu</Field>
+        <Field name="DE-priority">5</Field>
+        <Field name="DTPT-manager">jeffpet</Field>
+        <Field name="Description">Connectivity fault management feature for viking. This is the location for code
+            commits following the Unit test attachments
+        </Field>
+        <Field name="Dev-escape">N</Field>
+        <Field name="Document">viking</Field>
+        <Field name="Duplicate-of" ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsj15913">CSCsj15913
+        </Field>
+        <Field name="Duplicate-on">10/10/2007 20:27:39</Field>
+        <Field name="Engineer">jhuai</Field>
+        <Field name="Est-fix-date">10/26/2007 10:36:00</Field>
+        <Field name="Feature">fix</Field>
+        <Field name="Found">development</Field>
+        <Field name="Headline">CFM feature for Viking</Field>
+        <Field name="Identifier" ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214
+        </Field>
+        <Field name="Impact">not-a-bug</Field>
+        <Field name="Is-customer-visible">N</Field>
+        <Field name="Keyword">asr9000</Field>
+        <Field name="Keyword">asr9k</Field>
+        <Field name="Keyword">cfm</Field>
+        <Field name="Keyword">viking</Field>
+        <Field name="Mod Id">20</Field>
+        <Field name="New-on">11/28/2006 13:49:15</Field>
+        <Field name="Not-customer-visible-reason">Ignored due to $$IGNORE, $$PREFCS or other ignore flags</Field>
+        <Field name="Original-found">development</Field>
+        <Field name="Other-mail">jhuai lchang gwohlenb</Field>
+        <Field name="Product">asr9k</Field>
+        <Field name="Project">CSC.ena</Field>
+        <Field name="RNE_Approval">No</Field>
+        <Field name="RNE_Type">$$PREFCS</Field>
+        <Field name="Regression">N</Field>
+        <Field name="Reti-bug">N</Field>
+        <Field name="Security-screening-timestamp">09/11/2007 11:09:00</Field>
+        <Field name="Severity">6</Field>
+        <Field name="Severity-desc">enhancement</Field>
+        <Field name="Software-ios">viking</Field>
+        <Field name="Status">D</Field>
+        <Field name="Status-desc">D-Duplicate</Field>
+        <Field name="Submitted-on">11/28/2006 13:32:13</Field>
+        <Field name="Submitter">jfeagans</Field>
+        <Field name="Sys-Last-Updated">10/22/2011 14:51:41</Field>
+        <Field name="To-be-fixed">03.07.00.BASE</Field>
+        <Field name="Urgency-desc">NA</Field>
+        <Field name="Version">03.07.00.BASE</Field>
+        <AuditTrail id="Thu Aug 14 15:28:13 PDT 2008" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">cdetsadm</Field>
+            <Field name="ChangedOn">08/14/2008 15:28:13</Field>
+            <Field name="Field">Keyword</Field>
+            <Field name="NewValue">asr9000</Field>
+            <Field name="Operation">New Record</Field>
+        </AuditTrail>
+        <AuditTrail id="Thu Aug 14 15:28:10 PDT 2008" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">cdetsadm</Field>
+            <Field name="ChangedOn">08/14/2008 15:28:10</Field>
+            <Field name="Field">Keyword</Field>
+            <Field name="NewValue">asr9k</Field>
+            <Field name="Operation">New Record</Field>
+        </AuditTrail>
+        <AuditTrail id="Thu Aug 14 15:28:07 PDT 2008" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">cdetsadm</Field>
+            <Field name="ChangedOn">08/14/2008 15:28:07</Field>
+            <Field name="Field">Component</Field>
+            <Field name="NewValue">asr9k-eoam</Field>
+            <Field name="OldValue">vkg-eoam</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Thu Aug 14 15:28:07 PDT 2008" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">cdetsadm</Field>
+            <Field name="ChangedOn">08/14/2008 15:28:07</Field>
+            <Field name="Field">Product</Field>
+            <Field name="NewValue">asr9k</Field>
+            <Field name="OldValue">viking</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Oct 10 20:27:39 PDT 2007" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">jhuai</Field>
+            <Field name="ChangedOn">10/10/2007 20:27:39</Field>
+            <Field name="Field">Duplicate-of</Field>
+            <Field name="NewValue" ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsj15913">CSCsj15913
+            </Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Oct 10 20:27:34 PDT 2007" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">jhuai</Field>
+            <Field name="ChangedOn">10/10/2007 20:27:34</Field>
+            <Field name="Field">Status</Field>
+            <Field name="NewValue">D</Field>
+            <Field name="OldValue">A</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Oct 10 08:53:51 PDT 2007" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">dcarroll</Field>
+            <Field name="ChangedOn">10/10/2007 08:53:51</Field>
+            <Field name="Field">DTPT-manager</Field>
+            <Field name="NewValue">jeffpet</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Oct 10 08:53:51 PDT 2007" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">dcarroll</Field>
+            <Field name="ChangedOn">10/10/2007 08:53:51</Field>
+            <Field name="Field">Component</Field>
+            <Field name="NewValue">vkg-eoam</Field>
+            <Field name="OldValue">eoam</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Oct 10 08:53:51 PDT 2007" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">dcarroll</Field>
+            <Field name="ChangedOn">10/10/2007 08:53:51</Field>
+            <Field name="Field">DE-manager</Field>
+            <Field name="NewValue">rsuciu</Field>
+            <Field name="OldValue">dcarroll</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Oct 03 10:36:14 PDT 2007" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">gwohlenb</Field>
+            <Field name="ChangedOn">10/03/2007 10:36:14</Field>
+            <Field name="Field">Assigner</Field>
+            <Field name="NewValue">gwohlenb</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Oct 03 10:36:14 PDT 2007" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">gwohlenb</Field>
+            <Field name="ChangedOn">10/03/2007 10:36:14</Field>
+            <Field name="Field">Assigned Date</Field>
+            <Field name="NewValue">10/03/2007 10:36:14</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Oct 03 10:36:12 PDT 2007" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">gwohlenb</Field>
+            <Field name="ChangedOn">10/03/2007 10:36:12</Field>
+            <Field name="Field">Est-fix-date</Field>
+            <Field name="NewValue">10/26/2007 10:36:00</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Oct 03 10:35:56 PDT 2007" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">gwohlenb</Field>
+            <Field name="ChangedOn">10/03/2007 10:35:56</Field>
+            <Field name="Field">Engineer</Field>
+            <Field name="NewValue">jhuai</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Oct 03 10:35:53 PDT 2007" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">gwohlenb</Field>
+            <Field name="ChangedOn">10/03/2007 10:35:53</Field>
+            <Field name="Field">Status</Field>
+            <Field name="NewValue">A</Field>
+            <Field name="OldValue">N</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Oct 03 10:36:14 PDT 2007" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">gwohlenb</Field>
+            <Field name="ChangedOn">10/03/2007 10:36:14</Field>
+            <Field name="Field">To-be-fixed</Field>
+            <Field name="NewValue">03.07.00.BASE</Field>
+            <Field name="Operation">New Record</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Oct 03 10:35:39 PDT 2007" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">gwohlenb</Field>
+            <Field name="ChangedOn">10/03/2007 10:35:39</Field>
+            <Field name="Field">Severity-desc</Field>
+            <Field name="NewValue">enhancement</Field>
+            <Field name="OldValue">moderate</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon Sep 10 17:49:40 PDT 2007" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">soma</Field>
+            <Field name="ChangedOn">09/10/2007 17:49:40</Field>
+            <Field name="Field">Note Title</Field>
+            <Field name="NewValue">Release-note</Field>
+            <Field name="Operation">New Record</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Nov 29 10:05:55 PST 2006" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">jfeagans</Field>
+            <Field name="ChangedOn">11/29/2006 10:05:55</Field>
+            <Field name="Field">Keyword</Field>
+            <Field name="NewValue">cfm</Field>
+            <Field name="Operation">New Record</Field>
+        </AuditTrail>
+        <AuditTrail id="Tue Nov 28 16:02:16 PST 2006" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">jfeagans</Field>
+            <Field name="ChangedOn">11/28/2006 16:02:16</Field>
+            <Field name="Field">DE Priority Desc</Field>
+            <Field name="NewValue">very low</Field>
+            <Field name="OldValue">medium</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Tue Nov 28 13:49:15 PST 2006" defectID="CSCsg88214"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+            <Field name="ChangedBy">jfeagans</Field>
+            <Field name="ChangedOn">11/28/2006 13:49:15</Field>
+            <Field name="Field">Defect Created</Field>
+            <Field name="Operation">New Record</Field>
+        </AuditTrail>
+        <Notes>
+            <Note id="Release-note" defectID="CSCsg88214"
+                  ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/note/Release-note">
+                <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+                <Field name="CreatedBy">soma</Field>
+                <Field name="CreatedOn">09/10/2007 17:49:40</Field>
+                <Field name="Note">$$PREFCS
+                </Field>
+                <Field name="RNEApprovalFlag">N</Field>
+                <Field name="RNEType">$$PREFCS</Field>
+                <Field name="Title">Release-note</Field>
+                <Field name="Type">Release-note</Field>
+                <Field name="UpdatedBy">soma</Field>
+                <Field name="UpdatedOn">09/10/2007 17:49:40</Field>
+            </Note>
+        </Notes>
+        <Files>
+            <File id="DDTS_History.txt" defectID="CSCsg88214"
+                  ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214/file/DDTS_History.txt">
+                <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsg88214">CSCsg88214</Parent>
+                <Field name="Extension">txt</Field>
+                <Field name="FileSize">1003</Field>
+                <Field name="Filename">DDTS_History</Field>
+                <Field name="UpdatedBy">cdetsync</Field>
+                <Field name="UpdatedOn">01/22/2008 17:25:00</Field>
+            </File>
+        </Files>
+    </Defect>
+</CDETS>

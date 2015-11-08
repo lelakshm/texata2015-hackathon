@@ -1,0 +1,999 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CDETS xmlns:ns2="http://www.w3.org/1999/xlink" xmlns="cdetsng">
+    <Defect id="CSCsb82238" ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">
+        <Field name="Assigned Date">05/18/2009 11:33:40</Field>
+        <Field name="Assigner">agilani</Field>
+        <Field name="Attribute">XR THOR</Field>
+        <Field name="BCQURL" ns2:href="http://wiki-cpp.cisco.com/bin/view/CPP/CppAccessACLDebug">
+            http://wiki-cpp.cisco.com/bin/view/CPP/CppAccessACLDebug
+        </Field>
+        <Field name="BCQURLOwner">ssangiah</Field>
+        <Field name="BTK-security-complete">Y</Field>
+        <Field name="BadCodeFlag">N</Field>
+        <Field name="Care-Update">N</Field>
+        <Field name="Class">CSC.labtrunk</Field>
+        <Field name="Closed-on">11/30/2009 11:45:20</Field>
+        <Field name="Code-reviewer">clauer</Field>
+        <Field name="Component">qfp-acl</Field>
+        <Field name="DE Priority Desc">medium</Field>
+        <Field name="DE-manager">agilani</Field>
+        <Field name="DE-priority">3</Field>
+        <Field name="Description">The tcam dev_object code in the cpp driver defines DEV_STRICT_TYPE_CHECKING as the
+            dev_object spec requires but it also includes the GTM header files which in turn include the system header
+            files which is a violation of the dev_object model. &#xD;
+            &#xD;
+            As a result, under IOX we get build failures of the nature: &#xD;
+            &#xD;
+            cc1: warnings being treated as errors &#xD;
+            In file included from inc/c12k-rp-os/gtm/gtm_platform.h:24, &#xD;
+            from inc/c12k-rp-os/gtm/gtm_defs.h:17, &#xD;
+            from inc/c12k-rp-lc/cpp/oslib/cpp_gtm.h:22, &#xD;
+            from cpp/driver/server/cmn/src/cpp_drv_tcam4_dev_object_cmn.c:24: &#xD;
+            inc/c12k-rp-os/os/unistd.h:42: warning: useless keyword or type name in empty declaration &#xD;
+            inc/c12k-rp-os/os/unistd.h:42: warning: empty declaration &#xD;
+            inc/c12k-rp-os/os/unistd.h:52: warning: useless keyword or type name in empty declaration &#xD;
+            inc/c12k-rp-os/os/unistd.h:52: warning: empty declaration &#xD;
+            &#xD;
+            &#xD;
+            As a temporary workaround the DEV_STRICT_TYPE_CHECKING define was removed but this needs to be fixed long
+            term. &#xD;
+        </Field>
+        <Field name="Dev-escape">N</Field>
+        <Field name="Document">none</Field>
+        <Field name="Engineer">rajavenk</Field>
+        <Field name="Feature">fix</Field>
+        <Field name="Found">development</Field>
+        <Field name="Hardware-ios">none</Field>
+        <Field name="Headline">dev_object &amp; gtm header conflicts</Field>
+        <Field name="Identifier" ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238
+        </Field>
+        <Field name="Impact">maintainability</Field>
+        <Field name="Is-customer-visible">N</Field>
+        <Field name="Is-shared-component">Y</Field>
+        <Field name="Keyword">none</Field>
+        <Field name="Mod Id">37</Field>
+        <Field name="New-on">09/09/2005 00:00:00</Field>
+        <Field name="Not-customer-visible-reason">Ignored due to $$IGNORE, $$PREFCS or other ignore flags</Field>
+        <Field name="Original-found">development</Field>
+        <Field name="Other-mail">cpp-driver</Field>
+        <Field name="Patch-req">N</Field>
+        <Field name="Product">asr9k</Field>
+        <Field name="Project">CSC.labtrunk</Field>
+        <Field name="Regression">N</Field>
+        <Field name="Reti-bug">N</Field>
+        <Field name="Security-screening-timestamp">05/02/2007 08:05:00</Field>
+        <Field name="Severity">6</Field>
+        <Field name="Severity-desc">enhancement</Field>
+        <Field name="Software-ios">all</Field>
+        <Field name="Status">C</Field>
+        <Field name="Status-desc">C-Closed</Field>
+        <Field name="Submitted-on">09/09/2005 00:00:00</Field>
+        <Field name="Submitter">kamitch</Field>
+        <Field name="Sys-Last-Updated">10/22/2011 14:51:41</Field>
+        <Field name="Triggers">designconformance</Field>
+        <Field name="Version">all</Field>
+        <AuditTrail id="Mon Nov 30 11:45:20 PST 2009" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">rajavenk</Field>
+            <Field name="ChangedOn">11/30/2009 11:45:20</Field>
+            <Field name="Field">RNE-Approval-Flg</Field>
+            <Field name="OldValue">N</Field>
+            <Field name="Operation">New Record</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon Nov 30 11:45:20 PST 2009" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">rajavenk</Field>
+            <Field name="ChangedOn">11/30/2009 11:45:20</Field>
+            <Field name="Field">Note Title</Field>
+            <Field name="NewValue">C-comments</Field>
+            <Field name="Operation">New Record</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon Nov 30 11:45:20 PST 2009" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">rajavenk</Field>
+            <Field name="ChangedOn">11/30/2009 11:45:20</Field>
+            <Field name="Field">Closed-on</Field>
+            <Field name="NewValue">11/30/2009 11:45:20</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon Nov 30 11:45:15 PST 2009" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">rajavenk</Field>
+            <Field name="ChangedOn">11/30/2009 11:45:15</Field>
+            <Field name="Field">Status</Field>
+            <Field name="NewValue">C</Field>
+            <Field name="OldValue">A</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Jul 15 11:58:11 PDT 2009" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">rajavenk</Field>
+            <Field name="ChangedOn">07/15/2009 11:58:11</Field>
+            <Field name="Field">Engineer</Field>
+            <Field name="NewValue">rajavenk</Field>
+            <Field name="OldValue">maarumug</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Jul 15 11:57:48 PDT 2009" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">rajavenk</Field>
+            <Field name="ChangedOn">07/15/2009 11:57:48</Field>
+            <Field name="Field">Engineer</Field>
+            <Field name="NewValue">maarumug</Field>
+            <Field name="OldValue">rajavenk</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Fri May 22 06:10:02 PDT 2009" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">rajavenk</Field>
+            <Field name="ChangedOn">05/22/2009 06:10:02</Field>
+            <Field name="Field">Code-reviewer</Field>
+            <Field name="NewValue">clauer</Field>
+            <Field name="Operation">New Record</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon May 18 11:33:40 PDT 2009" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">agilani</Field>
+            <Field name="ChangedOn">05/18/2009 11:33:40</Field>
+            <Field name="Field">Assigned Date</Field>
+            <Field name="NewValue">05/18/2009 14:33:40</Field>
+            <Field name="OldValue">09/09/2005 03:00:00</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon May 18 11:33:40 PDT 2009" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">agilani</Field>
+            <Field name="ChangedOn">05/18/2009 11:33:40</Field>
+            <Field name="Field">Assigner</Field>
+            <Field name="NewValue">agilani</Field>
+            <Field name="OldValue">kamitch</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon May 18 11:33:35 PDT 2009" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">agilani</Field>
+            <Field name="ChangedOn">05/18/2009 11:33:35</Field>
+            <Field name="Field">Engineer</Field>
+            <Field name="NewValue">rajavenk</Field>
+            <Field name="OldValue">mtthomas</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon May 18 11:33:28 PDT 2009" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">agilani</Field>
+            <Field name="ChangedOn">05/18/2009 11:33:28</Field>
+            <Field name="Field">Info-awaiting</Field>
+            <Field name="OldValue">kamitch</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon May 18 11:33:28 PDT 2009" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">agilani</Field>
+            <Field name="ChangedOn">05/18/2009 11:33:28</Field>
+            <Field name="Field">Status</Field>
+            <Field name="NewValue">A</Field>
+            <Field name="OldValue">I</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon May 18 11:32:54 PDT 2009" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">agilani</Field>
+            <Field name="ChangedOn">05/18/2009 11:32:54</Field>
+            <Field name="Field">DE-manager</Field>
+            <Field name="NewValue">agilani</Field>
+            <Field name="OldValue">ssangiah</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon May 18 11:32:50 PDT 2009" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">agilani</Field>
+            <Field name="ChangedOn">05/18/2009 11:32:50</Field>
+            <Field name="Field">Product</Field>
+            <Field name="NewValue">asr9k</Field>
+            <Field name="OldValue">c12000</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon May 18 11:32:50 PDT 2009" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">agilani</Field>
+            <Field name="ChangedOn">05/18/2009 11:32:50</Field>
+            <Field name="Field">Attribute</Field>
+            <Field name="NewValue">XR THOR</Field>
+            <Field name="OldValue">XR</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Thu Nov 13 21:53:16 PST 2008" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">dcurrie</Field>
+            <Field name="ChangedOn">11/13/2008 21:53:16</Field>
+            <Field name="Field">Product</Field>
+            <Field name="NewValue">c12000</Field>
+            <Field name="OldValue">qfp</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Sep 03 13:52:28 PDT 2008" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">mtthomas</Field>
+            <Field name="ChangedOn">09/03/2008 13:52:28</Field>
+            <Field name="Field">RNE-Approval-Flg</Field>
+            <Field name="OldValue">N</Field>
+            <Field name="Operation">New Record</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Sep 03 13:52:28 PDT 2008" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">mtthomas</Field>
+            <Field name="ChangedOn">09/03/2008 13:52:28</Field>
+            <Field name="Field">Note Title</Field>
+            <Field name="NewValue">I-comments</Field>
+            <Field name="Operation">New Record</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Sep 03 13:52:05 PDT 2008" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">mtthomas</Field>
+            <Field name="ChangedOn">09/03/2008 13:52:05</Field>
+            <Field name="Field">Info-awaiting</Field>
+            <Field name="NewValue">kamitch</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed Sep 03 13:51:59 PDT 2008" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">mtthomas</Field>
+            <Field name="ChangedOn">09/03/2008 13:51:59</Field>
+            <Field name="Field">Status</Field>
+            <Field name="NewValue">I</Field>
+            <Field name="OldValue">A</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon Jun 09 17:33:37 PDT 2008" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">jianma</Field>
+            <Field name="ChangedOn">06/09/2008 17:33:37</Field>
+            <Field name="Field">Engineer</Field>
+            <Field name="NewValue">mtthomas</Field>
+            <Field name="OldValue">jianma</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed May 28 14:49:48 PDT 2008" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">desingh</Field>
+            <Field name="ChangedOn">05/28/2008 14:49:48</Field>
+            <Field name="Field">DTPT-manager</Field>
+            <Field name="NewValue">venu</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed May 28 14:49:48 PDT 2008" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">desingh</Field>
+            <Field name="ChangedOn">05/28/2008 14:49:48</Field>
+            <Field name="Field">Component</Field>
+            <Field name="NewValue">qfp-acl</Field>
+            <Field name="OldValue">cpp-sw</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed May 28 14:49:48 PDT 2008" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">desingh</Field>
+            <Field name="ChangedOn">05/28/2008 14:49:48</Field>
+            <Field name="Field">DE-manager</Field>
+            <Field name="NewValue">ssangiah</Field>
+            <Field name="OldValue">desingh</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed May 28 14:49:06 PDT 2008" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">desingh</Field>
+            <Field name="ChangedOn">05/28/2008 14:49:06</Field>
+            <Field name="Field">Product</Field>
+            <Field name="NewValue">qfp</Field>
+            <Field name="OldValue">all</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Thu Feb 07 09:41:26 PST 2008" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">hxu</Field>
+            <Field name="ChangedOn">02/07/2008 09:41:26</Field>
+            <Field name="Field">Attribute</Field>
+            <Field name="NewValue">XR</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Thu Feb 07 09:41:21 PST 2008" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">hxu</Field>
+            <Field name="ChangedOn">02/07/2008 09:41:21</Field>
+            <Field name="Field">Product</Field>
+            <Field name="NewValue">all</Field>
+            <Field name="OldValue">mcp</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Thu Feb 07 09:41:21 PST 2008" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">hxu</Field>
+            <Field name="ChangedOn">02/07/2008 09:41:21</Field>
+            <Field name="Field">Summary</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon Sep 03 10:44:10 PDT 2007" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">dcurrie</Field>
+            <Field name="ChangedOn">09/03/2007 10:44:10</Field>
+            <Field name="Field">Product</Field>
+            <Field name="NewValue">mcp</Field>
+            <Field name="OldValue">all</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Sun Jul 22 20:37:42 PDT 2007" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">ddts</Field>
+            <Field name="ChangedOn">07/22/2007 20:37:42</Field>
+            <Field name="Field">Summary</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Fri Jul 20 11:42:09 PDT 2007" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">desingh</Field>
+            <Field name="ChangedOn">07/20/2007 11:42:09</Field>
+            <Field name="Field">Severity-desc</Field>
+            <Field name="NewValue">enhancement</Field>
+            <Field name="OldValue">moderate</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Fri Jul 20 11:42:09 PDT 2007" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">desingh</Field>
+            <Field name="ChangedOn">07/20/2007 11:42:09</Field>
+            <Field name="Field">Dev-escape</Field>
+            <Field name="NewValue">N</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Thu Jun 21 08:03:48 PDT 2007" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">rmelton</Field>
+            <Field name="ChangedOn">06/21/2007 08:03:48</Field>
+            <Field name="Field">DE-manager</Field>
+            <Field name="NewValue">desingh</Field>
+            <Field name="OldValue">rmelton</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed May 23 12:28:00 PDT 2007" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">kephilli</Field>
+            <Field name="ChangedOn">05/23/2007 12:28:00</Field>
+            <Field name="Field">Summary</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed May 23 12:27:36 PDT 2007" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">kephilli</Field>
+            <Field name="ChangedOn">05/23/2007 12:27:36</Field>
+            <Field name="Field">Engineer</Field>
+            <Field name="NewValue">jianma</Field>
+            <Field name="OldValue">kephilli</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Wed May 23 12:20:08 PDT 2007" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">kephilli</Field>
+            <Field name="ChangedOn">05/23/2007 12:20:08</Field>
+            <Field name="Field">Note Title</Field>
+            <Field name="NewValue">A-comments</Field>
+            <Field name="Operation">New Record</Field>
+        </AuditTrail>
+        <AuditTrail id="Tue Dec 19 08:05:25 PST 2006" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">dcurrie</Field>
+            <Field name="ChangedOn">12/19/2006 08:05:25</Field>
+            <Field name="Field">DE-manager</Field>
+            <Field name="NewValue">rmelton</Field>
+            <Field name="OldValue">rickruby</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon Jan 23 13:45:33 PST 2006" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">cdetsync</Field>
+            <Field name="ChangedOn">01/23/2006 13:45:33</Field>
+            <Field name="Field">DE-manager</Field>
+            <Field name="NewValue">rickruby</Field>
+            <Field name="OldValue">rickruby</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon Jan 23 13:45:33 PST 2006" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">cdetsync</Field>
+            <Field name="ChangedOn">01/23/2006 13:45:33</Field>
+            <Field name="Field">Component</Field>
+            <Field name="NewValue">cpp-sw</Field>
+            <Field name="OldValue">cpp-driver</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Mon Jan 23 13:45:33 PST 2006" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">cdetsync</Field>
+            <Field name="ChangedOn">01/23/2006 13:45:33</Field>
+            <Field name="Field">Summary</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Fri Sep 09 08:14:51 PDT 2005" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">kamitch</Field>
+            <Field name="ChangedOn">09/09/2005 08:14:51</Field>
+            <Field name="Field">Status</Field>
+            <Field name="NewValue">A</Field>
+            <Field name="OldValue">N</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Fri Sep 09 08:14:51 PDT 2005" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">kamitch</Field>
+            <Field name="ChangedOn">09/09/2005 08:14:51</Field>
+            <Field name="Field">Assigned Date</Field>
+            <Field name="NewValue">09/09/2005 11:14:51</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Fri Sep 09 08:14:47 PDT 2005" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">kamitch</Field>
+            <Field name="ChangedOn">09/09/2005 08:14:47</Field>
+            <Field name="Field">Engineer</Field>
+            <Field name="NewValue">kephilli</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Fri Sep 09 08:14:41 PDT 2005" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">kamitch</Field>
+            <Field name="ChangedOn">09/09/2005 08:14:41</Field>
+            <Field name="Field">Assigner</Field>
+            <Field name="NewValue">kamitch</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Fri Sep 09 08:12:17 PDT 2005" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">kamitch</Field>
+            <Field name="ChangedOn">09/09/2005 08:12:17</Field>
+            <Field name="Field">Other-mail</Field>
+            <Field name="NewValue">cpp-driver</Field>
+            <Field name="Operation">Modify</Field>
+        </AuditTrail>
+        <AuditTrail id="Fri Sep 09 08:01:18 PDT 2005" defectID="CSCsb82238"
+                    ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/audittrail">
+            <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+            <Field name="ChangedBy">kamitch</Field>
+            <Field name="ChangedOn">09/09/2005 08:01:18</Field>
+            <Field name="Field">Defect Created</Field>
+            <Field name="Operation">New Record</Field>
+        </AuditTrail>
+        <Notes>
+            <Note id="A-comments" defectID="CSCsb82238"
+                  ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/note/A-comments">
+                <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+                <Field name="CreatedBy">kephilli</Field>
+                <Field name="CreatedOn">05/23/2007 12:07:20</Field>
+                <Field name="Note">Portions of an email thread where the solution is discussed. Basically, the
+                    gtm_platfom.h header file needs to have avoid including any platform specific headers if
+                    GTM_DEV_STRICT is defined.&#xD;
+                    &#xD;
+                    I recommend bracket the bulk of the file with an ifndef like:&#xD;
+                    &#xD;
+                    #ifndef GTM_DEV_STRICT&#xD;
+                    &lt;original file contents&gt;&#xD;
+                    #endif /* GTM_DEV_STRICT */&#xD;
+                    &#xD;
+                    That way, even if new platforms are added, GTM_DEV_STRICT will still prevent use of types that
+                    devobj doesn't like.&#xD;
+                    &#xD;
+                    -Kev (kephilli)&#xD;
+                    &#xD;
+                    On 1/23/06 5:19 PM, Markus Hoerler (mhoerler@cisco.com) wrote:&#xD;
+                    &#xD;
+                    &gt; &gt; &#xD;
+                    &gt; &gt; Agreed. I think Kevin's proposal is a bit cleaner, because it's&#xD;
+                    &gt; &gt; clearer that this is not exactly another OS type, but something a bit&#xD;
+                    &gt; &gt; different. But in the end, both will work.&#xD;
+                    &gt; &gt; &#xD;
+                    &gt; &gt; Assuming that Paul is the owner of that code (or the closest to an&#xD;
+                    &gt; &gt; owner I know of at the very least), I'll go with whatever he feels&#xD;
+                    &gt; &gt; most comfortable with.&#xD;
+                    &gt; &gt; &#xD;
+                    &gt; &gt; Thanks,&#xD;
+                    &gt; &gt; Markus&#xD;
+                    &gt; &gt; &#xD;
+                    &gt; &gt; On Mon, 23 Jan 2006, Jian Ma (jianma) wrote:&#xD;
+                    &gt; &gt; &#xD;
+                    &gt;&gt; &gt;&gt; I think both suggestions from Kevin and Paul will work fine, if we were&#xD;
+                    &gt;&gt; &gt;&gt; to take Paul's suggestion, we just sort of have another 'OS type' which&#xD;
+                    &gt;&gt; &gt;&gt; is OS agnostic, and we make clear comments that it must precede all OS&#xD;
+                    &gt;&gt; &gt;&gt; specific includes. Then these two proposals should work the same.&#xD;
+                    &gt;&gt; &gt;&gt; &#xD;
+                    &gt;&gt; &gt;&gt; Thanks&#xD;
+                    &gt;&gt; &gt;&gt; Jian&#xD;
+                    &gt;&gt; &gt;&gt; &#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; -----Original Message-----&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; From: Kevin Phillips (kephilli)&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; Sent: Monday, January 23, 2006 10:29 AM&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; To: Paul Therrien (therrien)&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; Cc: Markus Hoerler (mhoerler); Jian Ma (jianma); Keith&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; Mitchell (kamitch); cpp-driver(mailer list); Rick Ruby (rickruby)&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; Subject: Re: GTM includes are platform specific&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; Paul,&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; I think that should work as long at it were guaranteed to&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; come first...&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; obviously, we would not want to take the IOX, BinOS case, or&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; any other if the GTM_DEV_STRICT (or whatever) was set. That&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; said, I think I'd prefer to have it outside of the main set&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; of cases just to minimize the maintenance risk when adding&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; new cases...&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; -Kev&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; Paul Therrien wrote:&#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; I see, OK. Thanks for clarifying.&#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; So why not simply add another section within&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; gtm_platform.h, for example:&#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; ...&#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; #elif defined(GTM_DEV_STRICT)&#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; // include nothing&#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; #elif defined(SOMETHING_ELSE)&#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; ...&#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; Then, from within the context of your compiles, you can&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; simply define&#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; this constant and no other code needs to change.&#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; Comments?&#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; Thanks,&#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; -- Paul&#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; On 1/23/06 1:12 PM, Kevin Phillips (kephilli@cisco.com) wrote:&#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; Paul,&#xD;
+                    &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; As Markus points out the problem is the incompatibility of
+                    our&#xD;
+                    &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; dev_object code with gtm_platform.h. To be dev_object&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; compliant, we&#xD;
+                    &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; need to define __DEV_STRICT_TYPE_CHECKING__. This causes&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; dev_object&#xD;
+                    &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; headers to &quot;undefine&quot; a bunch of types that it
+                    considers&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; &quot;bad&quot;, like&#xD;
+                    &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; &quot;int&quot;, thereby encouraging you to use &quot;int32_t&quot;.
+                    Without&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; these types&#xD;
+                    &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; (e.g. int, etc.), declarations inside unistd.h and others&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; fail. So&#xD;
+                    &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; it is not a matter of adding things, to be compliant, we&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; need to make&#xD;
+                    &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; sure that headers making use of these &quot;bad&quot;
+                    types are not&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; included.&#xD;
+                    &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; Hence the suggestion of conditionally including them.&#xD;
+                    &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; -Kev&#xD;
+                    &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; Paul Therrien wrote:&#xD;
+                    &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; Thanks for the clarifications, Markus.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; I must say, however, that I still don't
+                    understand.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; Looking at gtm_platform.h in pd-fwd.lu/latest:&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; #if defined(GTM_IOX)&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; /*&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; * IOX&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; */&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; #include &lt;unistd.h&gt;&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; #include &lt;inttypes.h&gt;&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; #include &lt;infra/boolean.h&gt;&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; #elif defined(GTM_UNIX)&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; ....&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; I don't see anything here that makes use of &quot;illegal&quot;
+                    types.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; Could it be that when you compile, GTM_IOX is not
+                    defined?&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; If this is a compile issue when running the
+                    compiler&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; itself, as you&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; suggest, then it seems to me that the solution
+                    lies in&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; rearranging&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; the contents of gtm_platform.h as appropriate,
+                    rather&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; than modifying&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; the rest of the library (and perhaps cause&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; order-of-includes or other issues in your code as well).&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; Comments?&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; Thanks,&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; -- Paul&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; On 1/23/06 12:02 PM, Markus Hoerler
+                    (mhoerler@cisco.com) wrote:&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; On Mon, 23 Jan 2006, Paul Therrien wrote:&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Folks,&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Please correct me if I'm wrong,
+                    but that header file&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; does nothing&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; but declare those types. It
+                    doesn't actually use them&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; to define anything.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; You mean gtm_platform.h? That's correct.
+                    In fact, it&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; just includes&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; OS-specific header files which define
+                    types used elsewhere.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; So why does this become a problem?
+                    Is this due to some&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; lint-type&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; tool that complains?&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; Kind of. It's actually the way the
+                    dev_object files get compiled&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; with strict type checking.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Am I missing something?&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; Here is what happens with the strict
+                    checking in&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; dev_object: most&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; of the data types which are typically
+                    causing problems are&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; #define'ed to an empty string. For
+                    instance &quot;#defined int&quot;. This&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; very nicely catches every declaration of a&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; variable/field/parameter which uses &quot;int&quot;&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; instead of, say, the posix &quot;int32_t&quot;.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; So all these IOX-specific header files
+                    included from&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; gtm_platform.h&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; now define structs, prototypes and the
+                    like which are&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; syntactically&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; invalid, and the fact that they are not
+                    used really&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; doesn't matter.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; Kevin had the idea of reordering the
+                    includes in our&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; driver file (i.e.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; include gtm_defs.h/gtm_drv_api.h first,
+                    then include&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; dev_master.h&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; for the dev_object stuff), which seems to
+                    work, but it&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; does raise&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; questions about the long-term
+                    maintainability of our code which&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; have to be weighed against similar
+                    concerns in the GTM code.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Regarding Markus' suggested
+                    solution:&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Your suggestion won't work, since
+                    gtm_drvr_api.h&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; already includes&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; gtm_defs.h, which in turn includes
+                    gtm_platform.h.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; Good point! So we would have to do
+                    something a bit more involved.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; Given that there are currently 18 non-CPP
+                    source files&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; in IOX (at&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; least in the lineup I'm looking at), we
+                    probably don't want to&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; change gtm_drv_api.h itself.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; So in addition to creating gtm_defs_only.h
+                    with the guts of&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; gtm_defs.h, we would also have to move the
+                    guts of&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; gtm_drv_api.h to&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; gtm_drv_api_minimal.h and have
+                    gtm_drv_api_minimal.h include&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; gtm_defs_only.h .&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; The point would be to create a minimal
+                    include file for the few&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; driver files (just one for CPP right now)
+                    which require the&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; stricter rules from dev_object.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; The intent behind gtm_platform.h
+                    was to provide each target&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; environment with a place in which
+                    to prepare the necessary&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; platform/target specific
+                    constructs. I'd much rather&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; not change&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; the include structure, because it
+                    ultimately has a&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; ripple effect&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; in a lot of files.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; We are certainly trying to minimize the
+                    ripples. In&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; fact, having to&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; change both gtm_defs.h and gtm_drvr_api.h
+                    already makes&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; me want to&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; look for better alternatives.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; Couldn't you simply add a &quot;#elif
+                    GTM_BINOS&quot; block within that&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; file, and prepare the relevant
+                    dev_object-compliant&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; content from there?&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; The problem is not a BinOS problem, it
+                    exists in IOX as well. In&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; fact, BinOS actually pulls in fewer
+                    platform header files in&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; gtm_platform.h, so the dev_object code
+                    compiles without errors.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; It's IOX which doesn't work.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; The problem is that compiling the
+                    dev_object-compliant&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; driver code&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; requires the type definitions from
+                    gtm_defs.h and&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; gtm_drv_api.h but&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; stumbles over the extra stuff from
+                    gtm_platform.h. We&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; would like a&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; way to 'un-include' gtm_platform.h, but
+                    that doesn't work in C.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; Note that pretty much all the TCAM related
+                    CPP Client&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; code (written&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; by&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; Jian) which includes gtm_defs.h does
+                    indeed need&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; gtm_platform.h .&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; It's just the driver code which has a
+                    problem.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; In other words, why sould the
+                    definitions intended for one&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; platform violate those used for
+                    yours?&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; It's not an issue with the definitions for
+                    one OS&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; causing a problem&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; with another.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; If this issue arises indeed from a
+                    lint-style tool that is&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; flagging errors, then I posit that
+                    the tool is deficient if it&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; ignores preprocessor
+                    directives...the defines and&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; requirements of&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; one platform should not dictate
+                    how another platform&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; prepares its&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; platform dependent information.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; It's not a separate tool. It's the
+                    compiler itself.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; I'm definitely open to
+                    suggestions, but at the same&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; time I want to&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &quot;do the right thing&quot; for
+                    the long-term usability of this code.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; Same goal here.&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; Kevin suggested another alternative. Since
+                    the root cause of the&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; problem is including things through
+                    gtm_platform.h which&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; we don't&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; need in the driver and which are harmful,
+                    what about&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; letting the .c&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; files specify through a #define that the
+                    whole gtm_platform.h&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; should be effectively ignored? This would
+                    look like this&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; in gtm_platform.h:&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; #ifndef __GTM_PLATFORM_H__&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; #define __GTM_PLATFORM_H__&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; #ifndef GTM_PLATFORM_SKIP_OS_INCLUDES&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &lt;guts of file&gt;&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; #endif /* GTM_PLATFORM_SKIP_OS_INCLUDES */
+                    #endif /*&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; __GTM_PLATFORM_H__ */&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; In fact, if we didn't dislike cutesy hacks
+                    causing long-term&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; maintenance problems, we could just use
+                    #define&#xD;
+                    &gt;&gt;&gt; &gt;&gt;&gt; __GTM_PLATFORM_H__&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; in our driver file. :-) &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; &#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; Thanks,&#xD;
+                    &gt;&gt;&gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt;&gt;&gt; Markus
+                </Field>
+                <Field name="RNEApprovalFlag">N</Field>
+                <Field name="Title">A-comments</Field>
+                <Field name="Type">A-comments</Field>
+                <Field name="UpdatedBy">kephilli</Field>
+                <Field name="UpdatedOn">05/23/2007 12:20:08</Field>
+            </Note>
+            <Note id="C-comments" defectID="CSCsb82238"
+                  ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/note/C-comments">
+                <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+                <Field name="CreatedBy">rajavenk</Field>
+                <Field name="CreatedOn">11/30/2009 11:45:17</Field>
+                <Field name="Note">Go ahead and mark it 'C.'&#xD;
+                    &#xD;
+                    Thanks,&#xD;
+                    --&#xD;
+                    Aziz&#xD;
+                    &#xD;
+                    On 11/30/09 1:00 PM, &quot;Rajagopal Venkatraman (rajavenk)&quot; &lt;rajavenk@cisco.com&gt; wrote:&#xD;
+                    &#xD;
+                    &#xD;
+                    I dont think this has changed, and in that sense it is valid. But not sure, if we want to invest
+                    time in cleaning this.&#xD;
+                    &#xD;
+                    &#xD;
+                    &#xD;
+                    &#xD;
+                    &#xD;
+                    --------------------------------------------------------------------------------&#xD;
+                    From: Aziz Gilani (agilani) &#xD;
+                    Sent: Monday, November 30, 2009 12:56 PM&#xD;
+                    To: Rajagopal Venkatraman (rajavenk)&#xD;
+                    Subject: CSCsb82238: dev_object &#xD;
+                    &#xD;
+                    &#xD;
+                    Raja:&#xD;
+                    &#xD;
+                    Is this 1500+ day(?) old CDETS still valid?&#xD;
+                    &#xD;
+                    --&#xD;
+                    Aziz &#xD;
+                    &#xD;
+                    &#xD;
+                </Field>
+                <Field name="Title">C-comments</Field>
+                <Field name="Type">C-comments</Field>
+                <Field name="UpdatedBy">rajavenk</Field>
+                <Field name="UpdatedOn">11/30/2009 11:45:20</Field>
+            </Note>
+            <Note id="I-comments" defectID="CSCsb82238"
+                  ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/note/I-comments">
+                <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+                <Field name="CreatedBy">mtthomas</Field>
+                <Field name="CreatedOn">09/03/2008 13:52:23</Field>
+                <Field name="Note">The file cpp_drv_tcam4_dev_object_cmn.c does not exist in the latest cpp branch.
+                    &#xD;
+                    Also how do I enable DEV_STRICT_TYPE_CHECKING to see if other files have the same issue in dev
+                    objects?&#xD;
+                </Field>
+                <Field name="Title">I-comments</Field>
+                <Field name="Type">I-comments</Field>
+                <Field name="UpdatedBy">mtthomas</Field>
+                <Field name="UpdatedOn">09/03/2008 13:52:28</Field>
+            </Note>
+        </Notes>
+        <Files>
+            <File id="DDTS_History.txt" defectID="CSCsb82238"
+                  ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238/file/DDTS_History.txt">
+                <Parent ns2:href="https://cdetsng.cisco.com/wsapi/LTS-4.0/api/bug/CSCsb82238">CSCsb82238</Parent>
+                <Field name="Extension">txt</Field>
+                <Field name="FileSize">977</Field>
+                <Field name="Filename">DDTS_History</Field>
+                <Field name="UpdatedBy">cdetsync</Field>
+                <Field name="UpdatedOn">01/22/2008 17:25:00</Field>
+            </File>
+        </Files>
+    </Defect>
+</CDETS>

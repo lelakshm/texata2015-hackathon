@@ -1,0 +1,14 @@
+
+Title:
+What's the different between the CAB-SS-V35MT and CAB-V35MT
+
+URL:
+https://supportforums.cisco.com/discussion/9073111/whats-different-between-cab-ss-v35mt-and-cab-v35mt
+
+Statistics: Replies: 1   Avg. Rating: Views: 310   Votes: 0 Shares: 0
+
+Description: w.zhanghua / Nov 7th, 2001
+and where do them be used for? Thank you very much I have this problem too. 0 votes
+
+Reply: svermill / Thu, 11/08/2001 - 08:05
+The "SS" is a cable part number usually infers a "smart serial" connection. This is the miniature connector found on the newer interfaces, such as a WIC-2T. I suspect that the other part number is the older DB-60 version. You can always do a search on CCO for "cable part numbers" or similar for detail.

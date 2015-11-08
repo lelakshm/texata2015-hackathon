@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Applications at risk of contagion</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,300|Josefin+Sans|PT+Sans' rel='stylesheet'
+          type='text/css'>
+    <style type="text/css">
+
+        html {
+            width: 2500px;
+        }
+
+        body {
+            color: white;
+            margin-top: 5px;
+            margin-left: 25px;
+            margin-right: auto;
+            background: black;
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            position: relative;
+        }
+
+        div {
+            display: block
+        }
+
+        h1 {
+            font-family: 'Lato', sans-serif;
+        }
+
+        p {
+            color: white;
+            font-size: 18px;
+            font-family: 'Lato', sans-serif;
+        }
+
+        a {
+            color: white;
+        }
+
+        table {
+            color: white;
+            opacity: 0.75;
+            font-size: 18px;
+            font-family: 'Lato', sans-serif;
+        }
+
+        svg {
+            display: block;
+            color: white
+        }
+
+        .axis {
+            stroke: white;
+            stroke-width: 1.5px;
+        }
+
+        .node circle {
+            stroke: #000;
+        }
+
+        .link {
+            fill: none;
+        / / stroke : #999;
+            stroke-width: 1.5px;
+            stroke-opacity: .2;
+        }
+
+        .link.active {
+            stroke: #DC143C;
+            stroke-width: 4px;
+            stroke-opacity: 0.8;
+        }
+
+        .nodes circle.active {
+            stroke: #DC143C;
+            stroke-width: 3px;
+        }
+
+        .mainlegendtext {
+            fill: "white";
+            font-family: 'Lato', sans-serif;
+        }
+
+    </style>
+
+</head>
+
+<script src="http://d3js.org/d3.v2.js?2.8.1"></script>
+<body>
+
+<h1>Applications at risk of contagion</h1>
+
+<p id="info">Loading… </p>
+
+<script type="text/javascript">
+
+    var width = 1450,
+            height = 950,
+            innerRadius = 50,
+            outerRadius = 600,
+            majorAngle = 2 * Math.PI / 3,
+            minorAngle = Math.PI / 12;
+
+    var angle = d3.scale.ordinal()
+            .domain(["parent", "child"])
+            .range([0, majorAngle - minorAngle]);
+
+    var radius = d3.scale.linear()
+            .range([innerRadius, outerRadius]);
+
+    var svgLegend = d3.select("body").append("div")
+            .attr("id", "legend")
+            .attr("style", "float:left")
+            .attr("height", height)
+            .attr("width", "750")
+            .append("svg").attr("width", 750).attr("height", height)
+
+    var svg = d3.select("body").append("div")
+            .attr("id", "visualization")
+            .attr("height", height)
+            .attr("margin-left", "50px")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", "translate(150, 600)");
+
+    var formatNumber = d3.format(",d");
+    var defaultInfo;
+
+
+    // start loading data and visualization here
+    d3.csv("data/nodes.csv", function (csv) {
+
+        nodesByIndex = csv.map(function (el) {
+            el.member = +el.member;
+            el.index = +el.index;
+            el.contagion = +el.contagion;
+            el.infection = +el.contagion;
+            if (el.member == 0) {
+                el.type = "Parent";
+            } else {
+                el.type = "Child";
+            }
+            return el;
+        });
+
+        var nodesByType = d3.nest().key(function (d) {
+            return d.member;
+        }).sortKeys(d3.ascending).entries(nodesByIndex);
+
+        nodesByType.forEach(function (type) {
+            type.values = type.values.sort(compare)
+        });
+
+        nodesByType.forEach(function (type) {
+            var lastbusiness = type.values[0].severity;
+            var count = 0;
+            type.values.forEach(function (d) {
+                if (d.severity != lastbusiness) {
+                    lastbusiness = d.severity;
+                    count += 2;
+                }
+                d.plotIndex = count++;
+                console.info(d.index + " " + d.plotIndex + " " + d.member + " " + nodesByIndex[d.index]);
+                nodesByIndex[d.index].plotIndex = d.plotIndex;
+            });
+            type.count = count - 1;
+        });
+
+        nodesByType[0].key = "parent";
+        nodesByType[1].key = "child";
+
+        // load edges within here
+        d3.csv('data/edges.csv', function (csv) {
+            edges = [];
+
+            csv = csv.map(function (el) {
+                el.source = +el.source;
+                el.target = +el.target;
+                el.weight = +el.weight;
+                return el;
+            });
+
+            var el, sourceType, targetType, linkType;
+            for (var ii = 0; ii < csv.length; ii++) {
+                el = csv[ii];
+
+                if (nodesByIndex[el.source].member == 0) {
+                    sourceType = "parent";
+                } else {
+                    sourceType = "child";
+                }
+                if (nodesByIndex[el.target].member == 0) {
+                    targetType = "parent";
+                } else {
+                    targetType = "child";
+                }
+
+                sourceType = nodesByIndex[el.source].member;
+                targetType = nodesByIndex[el.target].member;
+
+                // type of link by business
+                if (nodesByIndex[el.source].severity == nodesByIndex[el.target].severity) {
+                    linkType = nodesByIndex[el.source].severity
+                } else {
+                    linkType = "others"
+                }
+
+                edges.push({
+                    source: {
+                        type: sourceType,
+                        node: nodesByIndex[el.source]
+                    },
+                    target: {
+                        type: targetType,
+                        node: nodesByIndex[el.target]
+                    },
+                    infected: el.weight,
+                    typeByLocation: linkType
+                });
+            }
+
+            var info = d3.select("#info").text(defaultInfo = "Showing " + formatNumber(edges.length) + " potential contagions among " + formatNumber(nodesByIndex.length) + " applications.");
+
+            var nodename = d3.select("#nodename").text(defaultText = "");
+            var nodebusiness = d3.select("#nodebusiness").text(defaultText = "");
+            var nodecontagion = d3.select("#nodecontagion").text(defaultText = "");
+            var nodeinfection = d3.select("#nodeinfection").text(defaultText = "");
+            var nodelink = d3.select("#nodelink").text(defaultText = "");
+            var name1 = d3.select("#name1").text(defaultText = "");
+            var name2 = d3.select("#name2").text(defaultText = "");
+            var business1 = d3.select("#business1").text(defaultText = "");
+            var business2 = d3.select("#business2").text(defaultText = "");
+            var propagation = d3.select("#propagation").text(defaultText = "");
+            var infection1 = d3.select("#infection1").text(defaultText = "");
+            var infection2 = d3.select("#infection2").text(defaultText = "");
+
+            radius.domain([0, d3.max([nodesByType[0].count, nodesByType[1].count])]);
+
+            // Draw the axes.
+            svg.selectAll(".axis")
+                    .data(nodesByType)
+                    .enter().append("line")
+                    .attr("class", "axis")
+                    .attr("transform", function (d) {
+                        return "rotate(" + degrees(angle(d.key)) + ")";
+                    })
+                    .attr("x1", radius(-2))
+                    .attr("x2", function (d) {
+                        return radius(d.count + 2);
+                    });
+
+            svg.append("text")
+                    .attr("id", "childlabel")
+                    .attr("transform", "rotate(" + degrees(majorAngle) + ")")
+                    .attr("x", radius(50))
+                    .attr("y", 0)
+                    .text("Child")
+                    .attr("text-anchor", "middle")
+                    .attr("style", "fill: white")
+                    .attr("transform", "" + degrees(majorAngle))
+                    .attr("dy", 150);
+
+            svg.append("text")
+                    .attr("id", "parentlabel")
+                    .attr("x", -radius(6))
+                    .attr("y", 0)
+                    .text("Parent")
+                    .attr("text-anchor", "middle")
+                    .attr("style", "fill: white")
+                    .attr("dy", -230)
+                    .attr("dx", 0);
+
+
+            // Draw the links
+            svg.append("g")
+                    .attr("class", "links")
+                    .selectAll(".link")
+                    .data(edges)
+                    .enter().append("path")
+                    .attr("class", "link")
+                    .attr("d", link()
+                            .angle(function (d) {
+                                return angle(d.type);
+                            })
+                            .radius(function (d) {
+                                return radius(d.node.plotIndex);
+                            }))
+                    .attr("stroke", function (d) {
+                        return linkColor(d.typeByLocation);
+                    })
+                    .on("mouseover", linkMouseover)
+                    .on("mouseout", mouseout);
+
+            // Draw the nodes
+            svg.append("g")
+                    .attr("class", "nodes")
+                    .selectAll(".type")
+                    .data(nodesByType)
+                    .enter().append("g")
+                    .attr("class", function (d) {
+                        return d.key + "nodes";
+                    })
+                    .attr("transform", function (d) {
+                        return "rotate(" + degrees(angle(d.key)) + ")";
+                    })
+                    .selectAll("circle")
+                    .data(function (d) {
+                        return d.values;
+                    })
+                    .enter().append("circle")
+                    .attr("cx", function (d) {
+                        return radius(d.plotIndex);
+                    })
+                    .attr("r", 4)
+                    .attr("fill", function (d) {
+                        return color(d.severity);
+                    })
+                    .on("mouseover", nodeMouseover)
+                    .on("mouseout", mouseout);
+
+
+            // Highlight the link and connected nodes on mouseover.
+            function linkMouseover(d) {
+
+                svg.selectAll(".link").classed("active", function (p) {
+                    return p === d;
+                });
+                svg.selectAll("circle").classed("active", function (p) {
+                    return p === d.source.node || p === d.target.node;
+                });
+
+                name1.text("From : " + d.source.node.name).style("fill", linkColor(d.typeByLocation)).style("opacity", "0.75");
+                name2.text("To : " + d.target.node.name).style("fill", linkColor(d.typeByLocation)).style("opacity", "0.75");
+                business1.text("Avg Severity :" + d.source.node.severity).style("fill", linkColor(d.typeByLocation)).style("opacity", "0.75");
+                business2.text("Avg Severity :" + d.target.node.severity).style("fill", linkColor(d.typeByLocation)).style("opacity", "0.75");
+                infection1.text("Avg Contagion : " + d.source.node.contagion.toFixed(2)).style("fill", linkColor(d.typeByLocation)).style("opacity", "0.75");
+                infection2.text("Avg Contagion : " + d.target.node.contagion.toFixed(2)).style("fill", linkColor(d.typeByLocation)).style("opacity", "0.75");
+                nodelink.text("↔").style("fill", linkColor(d.typeByLocation));
+                propagation.text("Propagation : " + d.infected + " (days)").style("fill", linkColor(d.typeByLocation)).style("opacity", "0.75");
+            }
+
+            // Highlight the node and connected links on mouseover.
+            function nodeMouseover(d) {
+
+                nodename.text(d.name.split(' ').slice(0, 3).join(' '));
+                nodebusiness.text("Avg Severity : " + d.severity);
+
+                var neiNodeList = [];
+                svg.selectAll(".link").classed("active", function (p) {
+                    if (p.source.node == d) {
+                        neiNodeList.push(p.target.node);
+                    }
+                    if (p.target.node == d) {
+                        neiNodeList.push(p.source.node);
+                    }
+                    return p.source.node === d || p.target.node === d;
+                });
+
+                var infectionSpread = d3.sum(neiNodeList.map(function (e) {
+                    if (e.member > d.member) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+                }));
+
+                var infectionCaused = d3.sum(neiNodeList.map(function (e) {
+                    if (e.member < d.member) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+                }));
+
+                if (d.member == 0) {
+                    nodecontagion.text("Contagious : " + d.contagion.toFixed(2));
+                    nodeinfection.text("Possible infections : " + infectionSpread);
+                } else {
+                    nodecontagion.text("Contagious : " + d.contagion.toFixed(2));
+                    nodeinfection.text("Possible infections : " + infectionSpread);
+                }
+
+                d3.select(this).classed("active", true);
+
+            }
+
+            // Clear any highlighted nodes or links.
+            function mouseout() {
+                svg.selectAll(".active").classed("active", false);
+                name1.text(defaultText);
+                name2.text(defaultText);
+                business1.text(defaultText);
+                business2.text(defaultText);
+                propagation.text(defaultText);
+                infection1.text(defaultText);
+                infection2.text(defaultText);
+                nodename.text(defaultText);
+                nodebusiness.text(defaultText);
+                nodecontagion.text(defaultText);
+                nodeinfection.text(defaultText);
+                nodelink.text(defaultText);
+            }
+
+        }); // close of edges csv
+
+    }); // close of node csv
+
+
+    // create sort function that will place females first, then males
+    // within those two categories, it will sort in descending order by degree (more connected nodes first)
+    function compare(a, b) {
+        if (a.severity < b.severity)
+            return -1;
+        if (a.severity > b.severity)
+            return 1;
+        if (a.severity == b.severity) {
+            if (a.contagion > b.contagion)
+                return -1;
+            if (a.contagion < b.contagion)
+                return 1;
+
+            return 0;
+        }
+    }
+
+    // colors for location nodes
+    function color(g) {
+        if (g == "1") {
+            return "#FFC299";
+        } else if (g == "2") {
+            return "#FFD1FF";
+        } else if (g == "3") {
+            return "#B2B2FF";
+        } else if (g == "4") {
+            return "#99FFEB";
+        } else if (g == "5") {
+            return "#E0FF85";
+        } else if (g == "6") {
+            return "#FFD6D6";
+        } else {
+            return "#FFCC66";
+        }
+    }
+
+    // link colors
+    function linkColor(g) {
+        if (g == "1") {
+            return "#FFC299";
+        } else if (g == "2") {
+            return "#FFD1FF";
+        } else if (g == "3") {
+            return "#B2B2FF";
+        } else if (g == "4") {
+            return "#99FFEB";
+        } else if (g == "5") {
+            return "#E0FF85";
+        } else if (g == "6") {
+            return "#FFD6D6";
+        } else {
+            return "#FFCC66";
+        }
+    }
+
+    // function to convert radians into degrees
+    function degrees(radians) {
+        return radians / Math.PI * 180 - 90;
+    }
+
+
+    // A shape generator for Hive links, based on a source and a target.
+    // Adapted from http://bost.ocks.org/mike/hive/
+    // The source and target are defined in polar coordinates (angle and radius).
+    // Ratio links can also be drawn by using a startRadius and endRadius.
+    // This class is modeled after d3.svg.chord
+    function link() {
+        var source = function (d) {
+                    return d.source;
+                },
+                target = function (d) {
+                    return d.target;
+                },
+                angle = function (d) {
+                    return d.angle;
+                },
+                startRadius = function (d) {
+                    return d.radius;
+                },
+                endRadius = startRadius,
+                arcOffset = -Math.PI / 2;
+
+        function link(d, i) {
+            var s = node(source, this, d, i),
+                    t = node(target, this, d, i),
+                    x;
+            if (t.a < s.a) x = t, t = s, s = x;
+            if (t.a - s.a > Math.PI) s.a += 2 * Math.PI;
+            var a1 = s.a + (t.a - s.a) / 3,
+                    a2 = t.a - (t.a - s.a) / 3;
+
+            // draw cubic bezier curves for nodes on different axes
+            return s.r0 - s.r1 || t.r0 - t.r1 ? "M" + Math.cos(s.a) * s.r0 + "," + Math.sin(s.a) * s.r0 + "L" + Math.cos(s.a) * s.r1 + "," + Math.sin(s.a) * s.r1 + "C" + Math.cos(a1) * s.r1 + "," + Math.sin(a1) * s.r1 + " " + Math.cos(a2) * t.r1 + "," + Math.sin(a2) * t.r1 + " " + Math.cos(t.a) * t.r1 + "," + Math.sin(t.a) * t.r1 + "L" + Math.cos(t.a) * t.r0 + "," + Math.sin(t.a) * t.r0 + "C" + Math.cos(a2) * t.r0 + "," + Math.sin(a2) * t.r0 + " " + Math.cos(a1) * s.r0 + "," + Math.sin(a1) * s.r0 + " " + Math.cos(s.a) * s.r0 + "," + Math.sin(s.a) * s.r0 : "M" + Math.cos(s.a) * s.r0 + "," + Math.sin(s.a) * s.r0 + "C" + Math.cos(a1) * s.r1 + "," + Math.sin(a1) * s.r1 + " " + Math.cos(a2) * t.r1 + "," + Math.sin(a2) * t.r1 + " " + Math.cos(t.a) * t.r1 + "," + Math.sin(t.a) * t.r1;
+        }
+
+        function node(method, thiz, d, i) {
+            var node = method.call(thiz, d, i),
+                    a = +(typeof angle === "function" ? angle.call(thiz, node, i) : angle) + arcOffset,
+                    r0 = +(typeof startRadius === "function" ? startRadius.call(thiz, node, i) : startRadius),
+                    r1 = (startRadius === endRadius ? r0 : +(typeof endRadius === "function" ? endRadius.call(thiz, node, i) : endRadius));
+            return {
+                r0: r0,
+                r1: r1,
+                a: a
+            };
+        }
+
+        link.source = function (_) {
+            if (!arguments.length) return source;
+            source = _;
+            return link;
+        };
+
+        link.target = function (_) {
+            if (!arguments.length) return target;
+            target = _;
+            return link;
+        };
+
+        link.angle = function (_) {
+            if (!arguments.length) return angle;
+            angle = _;
+            return link;
+        };
+
+        link.radius = function (_) {
+            if (!arguments.length) return startRadius;
+            startRadius = endRadius = _;
+            return link;
+        };
+
+        link.startRadius = function (_) {
+            if (!arguments.length) return startRadius;
+            startRadius = _;
+            return link;
+        };
+
+        link.endRadius = function (_) {
+            if (!arguments.length) return endRadius;
+            endRadius = _;
+            return link;
+        };
+
+        return link;
+    }
+    ;
+
+
+    //* Legend goes here *//
+    var lw = 700;
+    var lh = 450;
+
+    svgLegend.append("rect")
+            .attr("class", "legendcont")
+            .attr("x", (750 - lw) / 2)
+            .attr("y", 150)
+            .attr("width", lw)
+            .attr("height", lh)
+            .attr("fill", "#181818")
+            .attr("opacity", 0.5)
+            .attr("stroke", "white")
+            .attr("stroke-width", "3px")
+            .attr("rx", 15)
+            .attr("ry", 15);
+
+    var legendContainer = svgLegend.append("g").attr("transform", "translate(" + (750 - lw) / 2 + ",150)");
+    var legendContainerMargin = 20;
+
+    /// Changing here:
+
+    // if select node:
+    legendContainer.append("text")
+            .attr("id", "nodename")
+            .attr("x", lw / 2)
+            .attr("y", legendContainerMargin + 150)
+            .text("")
+            .attr("text-anchor", "middle")
+            .attr("dy", "4")
+            .attr("style", "fill: white; font-size:18");
+
+    legendContainer.append("text")
+            .attr("id", "nodebusiness")
+            .attr("x", lw / 2)
+            .attr("y", legendContainerMargin + 200)
+            .text("")
+            .attr("text-anchor", "middle")
+            .attr("dy", "4")
+            .attr("style", "fill: white; font-size:18");
+
+    legendContainer.append("text")
+            .attr("id", "nodecontagion")
+            .attr("x", lw / 2)
+            .attr("y", legendContainerMargin + 225)
+            .text("")
+            .attr("text-anchor", "middle")
+            .attr("dy", "4")
+            .attr("style", "fill: white; font-size:18");
+
+    legendContainer.append("text")
+            .attr("id", "nodeinfection")
+            .attr("x", lw / 2)
+            .attr("y", legendContainerMargin + 250)
+            .text("")
+            .attr("text-anchor", "middle")
+            .attr("dy", "4")
+            .attr("style", "fill: white; font-size:18");
+
+
+    // if select link:
+
+    legendContainer.append("text")
+            .attr("id", "name1")
+            .attr("x", 2 * lw / 4)
+            .attr("y", legendContainerMargin + 150)
+            .text("")
+            .attr("text-anchor", "middle")
+            .attr("dy", "4")
+            .attr("style", "fill: white; font-size:18");
+
+    legendContainer.append("text")
+            .attr("id", "name2")
+            .attr("x", 2 * lw / 4)
+            .attr("y", legendContainerMargin + 175)
+            .text("")
+            .attr("text-anchor", "middle")
+            .attr("dy", "4")
+            .attr("style", "fill: white; font-size:18");
+
+    legendContainer.append("text")
+            .attr("id", "nodelink")
+            .attr("x", lw / 2)
+            .attr("y", legendContainerMargin + 225)
+            .text("")
+            .attr("text-anchor", "middle")
+            .attr("dy", "4")
+            .attr("style", "fill: white; font-size:30");
+
+    legendContainer.append("text")
+            .attr("id", "propagation")
+            .attr("x", lw / 2)
+            .attr("y", legendContainerMargin + 250)
+            .text("")
+            .attr("text-anchor", "middle")
+            .attr("dy", "4")
+            .attr("style", "fill: white; font-size:18");
+
+    legendContainer.append("text")
+            .attr("id", "business1")
+            .attr("x", lw / 4)
+            .attr("y", legendContainerMargin + 300)
+            .text("")
+            .attr("text-anchor", "middle")
+            .attr("dy", "4")
+            .attr("style", "fill: white; font-size:18");
+
+    legendContainer.append("text")
+            .attr("id", "business2")
+            .attr("x", 3 * lw / 4)
+            .attr("y", legendContainerMargin + 300)
+            .text("")
+            .attr("text-anchor", "middle")
+            .attr("dy", "4")
+            .attr("style", "fill: white; font-size:18");
+
+    legendContainer.append("text")
+            .attr("id", "infection1")
+            .attr("x", lw / 4)
+            .attr("y", legendContainerMargin + 325)
+            .text("")
+            .attr("text-anchor", "middle")
+            .attr("dy", "4")
+            .attr("style", "fill: white; font-size:18");
+
+    legendContainer.append("text")
+            .attr("id", "infection2")
+            .attr("x", 3 * lw / 4)
+            .attr("y", legendContainerMargin + 325)
+            .text("")
+            .attr("text-anchor", "middle")
+            .attr("dy", "4")
+            .attr("style", "fill: white; font-size:18");
+
+
+</script>
+</body>
+</html>
+

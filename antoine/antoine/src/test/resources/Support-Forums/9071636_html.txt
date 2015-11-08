@@ -1,0 +1,14 @@
+
+Title:
+Cisco 1700 &quot;DOWNGRADEDBW&quot; error with ADSL wic module
+
+URL:
+https://supportforums.cisco.com/discussion/9071636/cisco-1700-downgradedbw-error-adsl-wic-module
+
+Statistics: Replies: 1   Avg. Rating: Views: 2345   Votes: 0 Shares: 0
+
+Description: m.pizzi@net-one.it / Nov 3rd, 2001
+Hello, After I've configured a Cisco 1700 router with the ADSL wic module installed, every X seconds a strange error message appears: %DSLSAR-1-DOWNGRADEDBW: PCR and SCR for VCD 1 (8/35) has been reduced to 160k 160k due to insufficient upstream bandwidth After the first error message of this kind, effectively if I put in the router the command 'sh int ATM 0', I can see that the bandwidth is set to 160k (while the line should be 640k). The problem affected multiple different 1700 router, with different ADSL wic modules and two different IOS versions (12.2 and 12.1). Should it be a bad configuration of the telco line, or a router configuration error? An obviously similar router configuration, put on a Cisco 827 series, gave no errors. On the Cisco web site, I've found the error.. I report it here for your convenience: ---------------------------------------- Error Message: %DSLSAR-1-DOWNGRADEDBW: PCR and SCR for VCD [dec] ([dec]/[dec]) has been reduced to [dec]k [dec]k due to insufficient upstream bandwidth Explanation: The DSL line has insufficient upstream bandwidth to support the guaranteed bandwidth that has been configured for the virtual circuits. Recommended Action Copy the error message exactly as it appears on the console or in the system log, contact your Cisco technical support representative, and provide the representative with the gathered information. ---------------------------------------- Thanks for your precious attention. Best regards, Marco Pizzi. I have this problem too. 0 votes
+
+Reply: alanssie / Mon, 11/05/2001 - 13:38
+Marco, While a DSL is establish, you might face issue on the line, the DSL protocol can reduce upstream/downstream in those sepecific case. This might be the case, do a "sh dsl int atm0" and look at upstream value, number of hec error, ... Those will give you an idea on how bad your line is. This errors can be due to crosstak and other noise encountered on your line. The first thing I would propose if the above is verified, is to ask the Telco to check the line. Hope this helps Alain

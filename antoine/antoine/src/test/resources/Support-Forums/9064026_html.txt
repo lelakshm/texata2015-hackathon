@@ -1,0 +1,17 @@
+
+Title:
+Magic numbers in ppp protocol.
+
+URL:
+https://supportforums.cisco.com/discussion/9064026/magic-numbers-ppp-protocol
+
+Statistics: Replies: 2   Avg. Rating: 5 Views: 2246   Votes: 0 Shares: 0
+
+Description: b.macfarlane / Oct 8th, 2001
+I've been using the "debug ppp negotiation" command and the output mentions magic numbers a lot. What are magic numbers and how do they relate to the lcp negotiation parameters ? I have this problem too. 0 votes Endorsed by jcarvaja svermill about 13 years 1 month ago Magic numbers are arbitrarily chosen by each ppp router. One router sends its own magic number to the other. If a router receives its own magic number back, it knows that there is a loopback on the line. The router can be configured to react to a loopback in various ways. So they really dont have anything to do with the ppp negotiation. Rather, they are contained in regularly sent ppp messages, which replace the Cisco proprietary keepalives. See endorsement in context
+
+Reply: svermill / Wed, 10/10/2001 - 09:58
+Magic numbers are arbitrarily chosen by each ppp router. One router sends its own magic number to the other. If a router receives its own magic number back, it knows that there is a loopback on the line. The router can be configured to react to a loopback in various ways. So they really dont have anything to do with the ppp negotiation. Rather, they are contained in regularly sent ppp messages, which replace the Cisco proprietary keepalives.
+
+Reply: pnedeltc / Tue, 10/30/2001 - 12:36
+You may want to use this... Magic numbers in PPP. This Configuration Option of PPP provides a method to detect looped-back links and other Data Link Layer anomalies. By default, the Magic-Number is not negotiated, and zero is inserted where a Magic-Number might otherwise be used. Before this Configuration Option is requested, the calling party MUST choose its Magic-Number, based on a algorithm for random numbers. When a Configure-Request is received with a Magic-Number, the received Magic-Number is compared with the Magic-Number of the last Configure-Request sent to the peer. If the two Magic-Numbers are different, then the link is not looped-back, and the Magic-Number SHOULD be acknowledged. If the two Magic-Numbers are equal, then it is possible, but not certain, that the link is looped-back and that this Configure-Request is actually the one last sent. To determine this, a Configure-Nak MUST be sent specifying a different Magic-Number value. A new Configure-Request SHOULD NOT be sent to the peer until normal processing would cause it to be sent (that is, until a Configure- Nak is received or the Restart timer runs out). Reception of a Configure-Nak with a Magic-Number different from that of the last Configure-Nak sent to the peer proves that a link is not looped-back, and indicates a unique Magic-Number. If the Magic-Number is equal to the one sent in the last Configure-Nak, the possibility of a looped-back link is increased, and a new Magic-Number MUST be chosen. In either case, a new Configure-Request SHOULD be sent with the new Magic-Number. If the link is indeed looped-back, this sequence (transmit Configure-Request, receive Configure-Request, transmit Configure-Nak, receive Configure-Nak) will repeat over and over again. If the link is not looped-back, this sequence might occur a few times, but it is extremely unlikely to occur repeatedly. More likely, the Magic-Numbers chosen at either end will quickly diverge, terminating the sequence. Best, Plamen

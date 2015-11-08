@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<techZoneContent xmlns="cdetsng" id="100022">
+    <boardHref>/boards/id/uc_apps_clients_cup@tkb</boardHref>
+    <containsVideo>0</containsVideo>
+    <content>[623326813] Solution: administration play does not show the logo for &quot;Cisco Jabber for Tablet&quot;.
+        Symptoms
+
+         
+        customer cannot see the logo for Cisco Jabber for Tablet icon in CUCM 8.5.1
+
+        Cause / Problem Description
+        customer installed the cop file cmterm-jabbertablet-100v10-dm.cop.sgn and the device is working good but
+        customer cannot see the logo. customer has the same setting in the lab but they can see the logo as:
+         
+
+
+        Conditions / Environment
+        CUCM 8.5.1.11900-21 and cop file cmterm-jabbertablet-100v10-dm.cop.sgn
+
+        Resolution
+        check the page source and can see:
+         
+        &lt;/select&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;table cellspacing='0' width='100%'
+        class='cuesTableBg' border='0' summary='Find List Table Result'&gt;&lt;tr class='cuesTableBg'&gt;&lt;th
+        id='check' align='absmiddle'&gt;&lt;input value='true' class='content-nogroove' name='masterCheckBox'
+        onclick='selectNamedRowsCheckbox(this)' type='checkbox'/&gt;&lt;/th&gt;&lt;th id='Icon'&gt;&amp;nbsp;&lt;/th&gt;&lt;th
+        id='Device Name(Line)' align='left'&gt;&lt;a href='javascript&amp;colon;onColumnFindSubmit(&quot;device.name&quot;,&quot;false&quot;)'
+        class='cuesToolbarLink'&gt;&lt;span class='cuesTableColumnHeaderSorted'&gt;Device Name(Line)&lt;img alt='Sort
+        Descending' src='/ccmadmin/themes/VtgBlaf/SortAscending16.gif'/&gt;&lt;/span&gt;&lt;/a&gt;&lt;/th&gt;&lt;th
+        id='Description' align='left'&gt;&lt;a href='javascript&amp;colon;onColumnFindSubmit(&quot;device.description&quot;,&quot;true&quot;)'
+        class='cuesToolbarLink'&gt;Description&lt;/a&gt;&lt;/th&gt;&lt;th id='Device Pool' align='left'&gt;&lt;a
+        href='javascript&amp;colon;onColumnFindSubmit(&quot;devicepool.name&quot;,&quot;true&quot;)'
+        class='cuesToolbarLink'&gt;Device Pool&lt;/a&gt;&lt;/th&gt;&lt;th id='Extension' align='left'&gt;&lt;a
+        href='javascript&amp;colon;onColumnFindSubmit(&quot;numplan.dnorpattern&quot;,&quot;true&quot;)'
+        class='cuesToolbarLink'&gt;Extension&lt;/a&gt;&lt;/th&gt;&lt;th id='Partition' align='left'&gt;&lt;a
+        href='javascript&amp;colon;onColumnFindSubmit(&quot;routepartition.name&quot;,&quot;true&quot;)'
+        class='cuesToolbarLink'&gt;Partition&lt;/a&gt;&lt;/th&gt;&lt;th id='Device Protocol' align='left'&gt;&lt;a
+        href='javascript&amp;colon;onColumnFindSubmit(&quot;typedeviceprotocol.name&quot;,&quot;true&quot;)'
+        class='cuesToolbarLink'&gt;Device Protocol&lt;/a&gt;&lt;/th&gt;&lt;th id='findlist.heading.status'&gt;Status&lt;/th&gt;&lt;th
+        id='findlist.heading.ipaddress'&gt;IP Address&lt;/th&gt;&lt;th id='findlist.heading.copy'&gt;Copy&lt;/th&gt;&lt;th
+        id='findlist.heading.supercopy'&gt;Super Copy&lt;/th&gt;&lt;/tr&gt;&lt;tr class='cuesTableRowEven'&gt;&lt;td
+        align='center'&gt;&lt;input value='true' class='content-nogroove' name='result[0].chked' type='checkbox'/&gt;&lt;input
+        name='result[0].col[0].stringVal' type='hidden' value='748b92d6-7b44-ccde-6788-f0a197d390ac'/&gt;&lt;input
+        name='result[0].col[1].stringVal' type='hidden' value='TABAPTCUCM'/&gt;&lt;/td&gt;&lt;td id='icon7'
+        nowrap='nowrap' align='left'&gt;&lt;a href='gendeviceEdit.do?key=748b92d6-7b44-ccde-6788-f0a197d390ac'
+        class='cuesTextLink'&gt;&lt;img title='Cisco Jabber for Tablet' class='content-grid-button-image' alt='Cisco
+        Jabber for Tablet' src='/ccmadmin/images/product537.gif'/&gt;&lt;/a&gt;&lt;/td&gt;&lt;td align='left'&gt;&lt;a
+        href='gendeviceEdit.do?key=748b92d6-7b44-ccde-6788-f0a197d390ac' class='cuesTextLink'&gt;TABAPTCUCM(1)&lt;/a&gt;&lt;/td&gt;&lt;td
+        align='left'&gt;&lt;/td&gt;&lt;td align='left'&gt;&lt;a
+        href='devicePoolEdit.do?key=7ae7def6-5112-d880-3f87-3edd482d970f' class='cuesTextLink'&gt;Sub-Pub-DP&lt;/a&gt;&lt;/td&gt;&lt;td
+        align='left'&gt;&lt;a href='directoryNumberEdit.do?key=bbf48fe5-03b5-1136-d0dc-ec2ce2e49621'&gt;9999&lt;/a&gt;&lt;/td&gt;&lt;td
+        align='left'&gt;&lt;a href='partitionEdit.do?key='&gt;&lt;/a&gt;&lt;/td&gt;&lt;td align='left'&gt;SIP&lt;/td&gt;&lt;td
+        align='left'&gt;Unknown&lt;/td&gt;&lt;td align='left'&gt;Unknown&lt;/td&gt;&lt;td align='left'&gt;&lt;a
+        href='gendeviceEdit.do?clone=1&amp;key=748b92d6-7b44-ccde-6788-f0a197d390ac' class='cuesTextLink'&gt;&lt;img
+        alt='Copy' title='Copy' src='/ccmadmin/themes/VtgBlaf/Copy16.gif'/&gt;&lt;/a&gt;&lt;/td&gt;&lt;td align='left'&gt;&lt;a
+        href='superCopyEdit.do?clone=1&amp;key=748b92d6-7b44-ccde-6788-f0a197d390ac' class='cuesTextLink'&gt;&lt;img
+        alt='Super Copy' title='Super Copy' src='/ccmadmin/themes/VtgBlaf/SuperCopy16.gif'/&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table
+        cellspacing='0' class='cuesTableButtonArea' border='0' cellpadding='0'&gt;&lt;tr class='cuesTableButtonArea'&gt;&lt;td&gt;&lt;input
+        onClick='onAddNew()' class='cuesButton' id='1tbl' name='Add New' alt='Add New' value='Add New' type='button'&gt;&lt;input
+        onClick='onSelectAll(true)' class='cuesButton' id='6tbl' name='Select All' alt='Select All' value='Select All'
+        type='button'&gt;&lt;input onClick='onSelectAll(false)' class='cuesButton' id='7tbl' name='Clear All' alt='Clear
+        All' value='Clear All' type='button'&gt;&lt;input onClick='onDeleteSelected()' class='cuesButton' id='8tbl'
+        name='Delete Selected' alt='Delete Selected' value='Delete Selected' type='button'&gt;&lt;input
+        onClick='onResetSelected()' class='cuesButton' id='9tbl' name='Reset Selected' alt='Reset Selected' value='Reset
+        Selected' type='button'&gt;&lt;input onClick='onApplyConfigSelected()' class='cuesButton' id='10tbl' name='Apply
+        Config to Selected' alt='Apply Config to Selected' value='Apply Config to Selected' type='button'&gt;&lt;/td&gt;&lt;td
+        align='right' style='vertical-align:middle'&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;!-- ******* BEGIN OF
+        GENERATED JAVASCRIPTS (FindListSearch) ******* --&gt;
+
+
+         
+        ### the image is from gif file           src='/ccmadmin/images/product537.gif'
+         
+        ### check with my lab and I can see installation log:
+        OLDCSVFILES =
+        GIFFILES =   product537.gif
+        XMLFILES =   Tablet_Client_rules.xml  Tablet_Client_SIP_display_instance.xml
+        Updating device defaults for non-L2
+        chmod 644   Product_537.csv
+        chown database:ccmbase   Product_537.csv
+        /bin/cp -fp   Product_537.csv /usr/local/cm/db/csv/products
+        Running DB commands for CSV files.
+        /bin/su -l informix -s /bin/sh -c &quot;source /usr/local/cm/db/dblenv.bash /usr/local/cm ; source
+        /usr/local/cm/db/informix/local/ids.env ; /usr/local/cm/bin/installdb -c
+        /usr/local/cm/db/csv/products/Product_537.csv&quot;
+        disablenotify  dsn[DSN=ccm_super]
+        disablenotify  rc[0]
+        csv DSN=ccm_super /usr/local/cm/db/csv/products/Product_537.csv
+        installCsv  rc[0]
+        enablenotify  dsn[DSN=ccm_super]
+        enablenotify  rc[0]
+        installdb Success[-c]
+        chmod 644   product537.gif
+        chown tomcat:tomcat   product537.gif
+        /bin/cp -fp   product537.gif /usr/local/thirdparty/jakarta-tomcat/webapps/ccmuser/images
+        /bin/cp -fp   product537.gif /usr/local/thirdparty/jakarta-tomcat/webapps/ccmadmin/images
+         
+         
+        ### check customer's network installation log and it has the same infomration.
+         
+         
+        ### under the CLI of the publisher, restart the tomcat as;   &quot;utils service restart Cisco Tomcat&quot;.
+         
+        ### login back to the administartion page, the logo show correctly.
+
+
+        &#xD;
+    </content>
+    <contributors>tac-ws</contributors>
+    <cqfScore>0</cqfScore>
+    <externalCqf>0</externalCqf>
+    <externalUrlList></externalUrlList>
+    <externalViews>0</externalViews>
+    <firstExternalizationDate>0000-00-00 00:00:00</firstExternalizationDate>
+    <firstFlagDate>0000-00-00 00:00:00</firstFlagDate>
+    <href>/messages/id/100022</href>
+    <improvFbId>0</improvFbId>
+    <improvFbStatus></improvFbStatus>
+    <improvFeedbackUrl></improvFeedbackUrl>
+    <improvFlaggerId></improvFlaggerId>
+    <improvTkbFlag>0</improvTkbFlag>
+    <kudos>0</kudos>
+    <labels>Solution,Jabber</labels>
+    <latestExternalizationDate>0000-00-00 00:00:00</latestExternalizationDate>
+    <latestFlagDdate>0000-00-00 00:00:00</latestFlagDdate>
+    <linkedCases>0</linkedCases>
+    <nominatedBy></nominatedBy>
+    <origAuthorTteam>GTC Sydney TAC Voice CUCM/Unity</origAuthorTteam>
+    <postTime>2012-09-30 00:44:06</postTime>
+    <publishedState>INTERNAL</publishedState>
+    <publisherUsername></publisherUsername>
+    <spExtIntDate>NULL</spExtIntDate>
+    <spExtPubDate>NULL</spExtPubDate>
+    <spExtPubVersion>NULL</spExtPubVersion>
+    <spExtURL>NULL</spExtURL>
+    <spExtUser>NULL</spExtUser>
+    <spPreInitUser>NULL</spPreInitUser>
+    <spPreIntDate>NULL</spPreIntDate>
+    <spPreURL>NULL</spPreURL>
+    <spPreviewedDate>NULL</spPreviewedDate>
+    <spPreviewedVersion>NULL</spPreviewedVersion>
+    <spState>NULL</spState>
+    <subject>[623326813] Solution: administration play does not show the logo for &quot;Cisco Jabber for Tablet&quot;.
+    </subject>
+    <syncdate>2015-10-05 19:40:59</syncdate>
+    <tkbId>/boards/id/uc_apps_clients_cup@tkb</tkbId>
+    <user>xiuli</user>
+    <viewHref>
+        https://techzone.cisco.com/t5/Cisco-Unified-Presence-Clients/623326813-Solution-administration-play-does-not-show-the-logo/ta-p/100022
+    </viewHref>
+    <views>5225</views>
+</techZoneContent>
+
+
+        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<techZoneContent xmlns="cdetsng" id="100034">
+<boardHref>/boards/id/xr_asr9000@tkb</boardHref>
+<containsVideo>0</containsVideo>
+<content>Installing 4.2.1 CGN package on A9K-ISM-100 blade
+    Installation Steps
+     
+    Step 1 Manually remove the non-CGV6 (CDS TV/IS) configuration.
+
+    This is required when you convert an ISM card running CDS TV/IS software to CGv6 and here it’s referring to the XR
+    config, like the service role,  service management and service-engine interfaces etc for CDS TV or IS..
+
+    Step 2 Getting SW
+     
+    Install the Cisco IOS XR Software Release 4.2.1 image on the ASR 9000 router including -services- PIE.
+    Download the install kit asr9k-ism-cgv6-install-kit-4.2.1.00.sh from
+    https://upload.cisco.com/cgi-bin/swc/fileexg/main.cgi?CONTYPES=IOS-XR.
+    Put it into disk0: of the active RSP into the root folder.
+    The installation kit is partially txt shell script and partially binary. Make sure, when you copy the image onto
+    your file server, you force it into binary mode.
+
+    Step 3 version incompatibility
+     
+    To handle version incompatibility between APIs of IOS XR and Linux software, run the following commands as soon as
+    the ISM LCP is in IOS XR RUN (!!! short time !!!) state. Delay may result in card reload due to API mismatch.
+
+    proc mandatory OFF fib_mgr location &lt;ISM location&gt;
+    proc shutdown fib_mgr location &lt;ISM location&gt;
+    admin debug sim reload-disable location &lt;ISM location&gt;
+
+    Example:
+     
+    RP/0/RSP0/CPU0:medved#proc mandatory OFF fib_mgr location 0/3/cpu0
+    Fri Sep 28 21:45:44.284 CEST
+    RP/0/RSP0/CPU0:medved#proc SHUTDOWN fib_mgr location 0/3/cpu0
+    Fri Sep 28 21:45:44.328 CEST
+    Process Shutdown of a process could leave the System in an Inconsistent State. Proceed? [confirm]
+    RP/0/RSP0/CPU0:Sep 28 21:46:44.093 : sysmgr_control[65849]: %OS-SYSMGR-4-PROC_SHUTDOWN_NAME : User hfr (vty0)
+    requested a shutdown of process fib_mgr at 0/3/CPU0
+    RP/0/RSP0/CPU0:medved#admin debug sim reload-disable location 0/3/cpu0
+    RP/0/RSP0/CPU0:medved#admin
+    RP/0/RSP0/CPU0:medved(admin)#upgrade hw-module fpd all location 0/3/CPU0
+     
+
+
+    Failing to run this command would cause the ISM card to constantly reload with following messages on the ISM
+    console:
+     
+    LC/0/3/CPU0:Sep 28 21:07:14.032 : apiv_srvr[116]: %PLATFORM-APIV-5-API_INCOMPATIBLE : Message 24 in APIV module
+    APIV_SI is incompatible (reason: Not supported on the remote side)
+    LC/0/3/CPU0:Sep 28 21:07:14.033 : apiv_srvr[116]: %PLATFORM-APIV-3-MODULE_INCOMPATIBLE : APIV module APIV_SI is
+    incompatible
+    LC/0/3/CPU0:Sep 28 21:07:14.196 : avsm_agent[125]: %APIV-3-API_INCOMPATIBLE : Message 24 in APIV module APIV_SI is
+    incompatible(Not supported on local)
+    LC/0/3/CPU0:Sep 28 21:07:14.197 : avsm_agent[125]: %APIV-3-MODULE_INCOMPATIBLE : APIV_SI APIV module failed to
+    negotiate versions due to incompatible version
+     
+     
+
+
+    Step 4 RECOVERY MODE
+     
+    Bring the ISM blade into RECOVERY MODE by using the following command.
+    admin download recovery to &lt;ISM location&gt;
+
+    Example:
+     
+    admin download recovery-image to 0/3/CPU0
+     
+     
+    Step 5 Upgrade FPD
+
+    (admin)#upgrade hw-module fpd all location &lt;ISM location&gt;
+     
+
+    Step 6  CGN Role
+     
+    Execute the following commands on the RSP to set the service role as CGN.
+
+    (config)#hw-module service cgn location &lt;ISM location&gt;
+     
+    Step 7 CGN kit copy
+     
+    Copy asr9k-ism-cgv6-install-kit-4.2.1.00.sh install-kit to the disk on the RSP.
+
+    Example:
+     
+    RP/0/RSP0/CPU0:medved(admin)#copy
+    ftp://ftp:ww@144.254.10.204/tftpboot/hfr/4.2.1/asr9k/asr9k-ism-cgv6-install-kit-4.2.1.00.sh disk0:
+
+    Step 8 CGN Checksum
+    Verify MD5 checksum. The script does not handle errors, any installation failures won’t be shown.
+
+    Example:
+     
+    RP/0/RSP0/CPU0:medved#run
+    Mon Oct  1 12:36:35.744 CEST
+    # cd /disk0:
+    # md5 asr9k-ism-cgv6-install-kit-4.2.1.00.sh
+    a022320ddd569fb6dfabc8f4c941bc17
+
+    Step 7 Install the images on X86
+
+    admin download install-image &lt;location/path of the kit&gt; from &lt;rsp_node where the kit was copied&gt; to &lt;ism_node&gt;
+
+    This will reload the ISM card
+
+    Example:
+     
+    RP/0/RSP0/CPU0:medved(admin)#download install-image disk0:asr9k-ism-cgv6-install-kit-4.2.1.00.sh from 0/RSP0/CPU0 to
+    0/3/CPU0
+    Sat Sep 29 10:39:37.709 CEST
+
+    You are going to install new application on LC. Card will be reloaded automatically once installation is completed.
+    Do you want to proceed Installation?[confirm]
+    Installation is in progress, Please do not reload the LC
+     
+     
+     
+
+    Appendix
+     
+    Appendix A. Expected Installation output.
+
+    You can connect to ISM Linux CPU1 (one) and monitor the installation using &quot;run attachCon 0/x/CPU1&quot;
+    After the &quot;admin download install-image&quot; command the ISM first reloads itself into Recovery mode and then
+    host pushed the Install Kit into it.
+    We should see menages of Starting and successfully downloaded. (Takes around 10min)
+
+    Example:
+     
+    [root@sim100-rescue-linux /]# SE-MBOX-SERVER:[1616]: Starting receiving upload image from host
+    (image_name=asr9k-ism-cgv6-install-kit-4.2.1.00.sh, image_size=392826505 bytes)
+
+    SE-MBOX-SERVER:[1616]: Image was successfully downloaded to /tmp/asr9k-ism-cgv6-install-kit-4.2.1.00.sh
+    se_sysmgr:[1705]: se_role_install_thread: status  after wesson_fpga_read_byte = 0, msgbuf = ,val = 5
+     
+
+
+    After the kit is download into /tmp folder the script execution automatically run. You’ll see following output and
+    the card will be reset after:
+     
+    SCSI device sda: 118122224 512-byte hdwr sectors (60479 MB)
+    sda: Write Protect is off
+    SCSI device sda: drive cache: write through
+     sda:
+    SCSI device sda: 118122224 512-byte hdwr sectors (60479 MB)
+    sda: Write Protect is off
+    SCSI device sda: drive cache: write through
+     sda: sda1 sda2 sda3 sda4 &lt; sda5 sda6 &gt;
+    kjournald starting.  Commit interval 5 seconds
+    EXT3 FS on sda1, internal journal
+    EXT3-fs: mounted filesystem with ordered data mode.
+    kjournald starting.  Commit interval 5 seconds
+    EXT3 FS on sda6, internal journal
+    EXT3-fs: mounted filesystem with ordered data mode.
+
+    se_sysmgr:[1705]: rc = 0,  CGV6 Install script executed
+
+    After the reset the module should continue the installation process.
+     
+    Appending B. Verifying if Linux could detect the installation disk.
+
+    When in recovery mode we can use fdisk to verify if our media has been detected:
+
+    Example:
+     
+    [root@sim100-rescue-linux proc]# fdisk -l
+
+    Disk /dev/sda: 60.4 GB, 60478578688 bytes
+    255 heads, 63 sectors/track, 7352 cylinders
+    Units = cylinders of 16065 * 512 = 8225280 bytes
+     
+    Appendix C. Monitoring the Installation process.
+
+    When the kit is downloaded into the /tmp folder the installation will start automatically. There would be
+    /tmp/INSTALL_LOG file recording the script execution process.
+
+    Attention: The file is available for a short period of time. It is created after the image is loaded and would be
+    deleted after the card reload.
+     
+    Monitor the console for &quot;SE-MBOX-SERVER:[1616]: Image was successfully downloaded to
+    /tmp/asr9k-ism-cgv6-install-kit-4.2.1.00.sh&quot; message, then &quot;cd /tmp&quot; and use ls command watching the
+    INSTALL_LOG file creation. When the file is there, use &quot;tail -f INSTALL_LOG&quot; to monitor the script
+    execution.
+
+
+    Here is the example of the successful installation:
+     
+
+    [root@sim100-rescue-linux tmp]# tail -f INSTALL_LOG
+    Sun Sep 30 03:10:47 UTC 2012
+    Executing role_cgv6_install.sh script ...
+    chmod 777 asr9k-ism-cgv6-install-kit-4.2.1.00.sh
+    Executing ./asr9k-ism-cgv6-install-kit-4.2.1.00.sh
+    cd ism_install
+    Executing ... ./ism_install.sh
+    Checking required files for installation ... [ DONE ]
+      Found file ism_install.sh.
+      Found file initrd-avsm.img.
+      Found file vmlinuz-avsm.
+      Found file ism-5.3-x86_64-full-image.iso.
+      Found file ism-iso-full-image.sha1sum.
+
+    Can't execute: ./avsm_apiv/avsm_mcast_apiv_compat
+    Can't execute: ./avsm_apiv/avsm_mcast_stats_apiv_compat
+    Can't execute: ./avsm_apiv/avsm_l2fib_apiv_compat
+    Can't execute: ./avsm_apiv/avsm_l2fib_stats_apiv_compat
+    Package compatibility check PASSED
+    Removing existing partitions on /dev/sda ... [ DONE ]
+      Maximum partition index found 8
+      Deleted partition /dev/sda8.
+      Deleted partition /dev/sda7.
+      Deleted partition /dev/sda6.
+      Deleted partition /dev/sda5.
+      Deleted partition /dev/sda4.
+      Deleted partition /dev/sda3.
+      Deleted partition /dev/sda2.
+      Deleted partition /dev/sda1.
+
+    SCSI device sda: 118122224 512-byte hdwr sectors (60479 MB)
+    sda: Write Protect is off
+    SCSI device sda: drive cache: write through
+     sda:
+    Creating partitions on /dev/sda ... |SCSI device sda: 118122224 512-byte hdwr sectors (60479 MB)
+    sda: Write Protect is off
+    SCSI device sda: drive cache: write through
+     sda: sda1 sda2 sda3 sda4 &lt; sda5 sda6 &gt;
+    [ DONE ]
+      Successfully created partitions on /dev/sda.
+
+    Changing /dev/sda1 to ext3 format ... [ DONE ]
+      Created symbolic link /etc/mtab to /proc/mounts.
+      Executed mkfs.ext3 on /dev/sda1.
+
+    Changing /dev/sda6 to ext3 format ... [ DONE ]
+      Created symbolic link /etc/mtab to /proc/mounts.
+      Executed mkfs.ext3 on /dev/sda6.
+
+    Mounting /dev/sda1 to /mnt/boot/ ... ... -kjournald starting.  Commit interval 5 seconds
+    EXT3 FS on sda1, internal journal
+    EXT3-fs: mounted filesystem with ordered data mode.
+    [ DONE ]
+      Mounted /dev/sda1 to /mnt/boot
+
+    Mounting /dev/sda6 to /mnt/upgrade_part/ ... ... -kjournald starting.  Commit interval 5 seconds
+    EXT3 FS on sda6, internal journal
+    EXT3-fs: mounted filesystem with ordered data mode.
+    [ DONE ]
+      Mounted /dev/sda6 to /mnt/upgrade_part
+
+    Copying files to /dev/sda ... [ DONE ]
+      Copied /usr/share/grub/x86_64-redhat/* to ..
+      Created symbolic link menu.lst to grub.conf.
+      Installed grub on /dev/sda
+      Copied vmlinuz-avsm to /mnt/upgrade_part/.
+      Copied initrd-avsm.img to /mnt/upgrade_part/.
+      Copied ism_install.sh to /mnt/upgrade_part/.
+      Copied ism-iso-full-image.sha1sum to /mnt/upgrade_part/.
+      Copied ism-5.3-x86_64-full-image.iso to /mnt/upgrade_part/upgrade/.
+      Copied backup_cfg.sh to /mnt/upgrade_part/upgrade/.
+      Copied backup.list to /mnt/upgrade_part/upgrade/.
+      Copied restore_cfg.sh to /mnt/upgrade_part/upgrade/.
+      Copied restore.list to /mnt/upgrade_part/upgrade/.
+      Copied cds_upg_report.sh to /mnt/upgrade_part/upgrade/.
+
+    The installation script completes successfully. Please type
+      'hw-module location x/y/z reload'
+    on ASR9K console to reboot this ISM.
+
+    Cleaning up ... [ DONE ]
+      Unmounted /mnt/boot.
+
+    Exiting remote iso install setup script...
+    Logfile at: /var/avsmtv_install.log
+    se_sysmgr:[1705]: rc = 0,  CGV6 Install script executed
+
+    ERROR: ism_install.sh failed ! Exiting ...
+    Commenting exit is tempoary
+    Sun Sep 30 03:11:53 UTC 2012
+    Installation completed
+
+
+    &#xD;
+</content>
+<contributors>tac-ws</contributors>
+<cqfScore>0</cqfScore>
+<externalCqf>0</externalCqf>
+<externalUrlList></externalUrlList>
+<externalViews>0</externalViews>
+<firstExternalizationDate>0000-00-00 00:00:00</firstExternalizationDate>
+<firstFlagDate>0000-00-00 00:00:00</firstFlagDate>
+<href>/messages/id/100034</href>
+<improvFbId>0</improvFbId>
+<improvFbStatus></improvFbStatus>
+<improvFeedbackUrl></improvFeedbackUrl>
+<improvFlaggerId></improvFlaggerId>
+<improvTkbFlag>0</improvTkbFlag>
+<kudos>10</kudos>
+<labels>ISM,ASR9006,ASR9010,ASR9000,ASR9000 LC</labels>
+<latestExternalizationDate>0000-00-00 00:00:00</latestExternalizationDate>
+<latestFlagDdate>0000-00-00 00:00:00</latestFlagDdate>
+<linkedCases>6</linkedCases>
+<nominatedBy></nominatedBy>
+<origAuthorTteam>TAC CRS Belgium GTC</origAuthorTteam>
+<postTime>2012-09-30 05:49:24</postTime>
+<publishedState>INTERNAL</publishedState>
+<publisherUsername></publisherUsername>
+<spExtIntDate>NULL</spExtIntDate>
+<spExtPubDate>NULL</spExtPubDate>
+<spExtPubVersion>NULL</spExtPubVersion>
+<spExtURL>NULL</spExtURL>
+<spExtUser>NULL</spExtUser>
+<spPreInitUser>NULL</spPreInitUser>
+<spPreIntDate>NULL</spPreIntDate>
+<spPreURL>NULL</spPreURL>
+<spPreviewedDate>NULL</spPreviewedDate>
+<spPreviewedVersion>NULL</spPreviewedVersion>
+<spState>NULL</spState>
+<subject>Installing 4.2.1 CGN package on A9K-ISM-100 blade</subject>
+<syncdate>2015-10-05 19:40:59</syncdate>
+<tkbId>/boards/id/xr_asr9000@tkb</tkbId>
+<user>akiritch</user>
+<viewHref>https://techzone.cisco.com/t5/ASR-9000/Installing-4-2-1-CGN-package-on-A9K-ISM-100-blade/ta-p/100034
+</viewHref>
+<views>10173</views>
+</techZoneContent>
+
+
+        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<techZoneContent xmlns="cdetsng" id="100048">
+<boardHref>/boards/id/security_ios_vpn@tkb</boardHref>
+<containsVideo>0</containsVideo>
+<content>EEM Scripts used to Troubleshoot Tunnel Flaps Caused by Invalid Security Parameter Indexes
+    Table of Contents
+         Introduction
+         Prerequisites 
+              Requirements
+              Components Used
+              Conventions
+         Problem
+         Solution
+              SNMP Configuration
+              Final Script
+              EEM Script Logs
+              Verification
+         Related Information
+     
+     
+     
+
+    Introduction
+     
+    This document describes one of the most common IPsec issues, which is that Security Associations (SAs) can become
+    out of sync between the peer devices. As a result, an encrypting device will encrypt traffic with SAs that the peer
+    encryptor does not know about.
+     
+    Note: Contributed by Anu M Chacko, Cisco TAC Engineer.
+     
+     
+     
+
+    Prerequisites 
+     
+
+    Requirements
+     
+    There are no specific requirements for this document.
+     
+     
+
+    Components Used
+     
+    This information in this document is based on tests completed with Cisco IOS® Release 15.1(4)M4. The scripts and
+    configuration should work with earlier Cisco IOS software versions as well, since both applets use Embedded Event
+    Manager (EEM) version 3.0 which is supported in Cisco IOS Release 12.4(22)T or later. However, this has not been
+    tested.
+     
+    The information in this document was created from the devices in a specific lab environment. All of the devices used
+    in this document started with a cleared (default) configuration. If your network is live, make sure that you
+    understand the potential impact of any command.
+     
+     
+
+    Conventions
+    Refer to Cisco Technical Tips Conventions for more information on document conventions.
+     
+     
+     
+
+    Problem
+     
+    Packets are dropped on the peer with this message logged to the syslog:
+     
+    *Mar 12 18:22:10.706: %CRYPTO-4-RECVD_PKT_INV_SPI: decaps: rec'd IPSEC packet has invalid spi for
+    destaddr=213.163.222.7, prot=50, spi=0x68842105(1753489669), srcaddr=11.1.1.3, input interface=Ethernet0/0
+     
+    For detailed information on invalid Security Parameter Indexes (SPIs), refer to IPSec %RECVD_PKT_INV_SPI Errors and
+    Invalid SPI Recovery. This document describes how to troubleshoot scenarios in which the error occurs
+    intermittently, which makes it hard to collect the necessary data to troubleshoot.
+     
+    This type of problem is not like normal VPN troubleshooting, where you can obtain the debugs when the problem
+    occurs. In order to troubleshoot intermittent tunnel flaps caused by invalid SPIs, you must first determine how the
+    two headends got out of sync. Since it is impossible to predict when the next outage will occur, EEM scripts are the
+    solution.
+     
+     
+     
+
+    Solution
+     
+    Since it is important to know what happens before this syslog message is triggered, continue to run the conditional
+    debugs on the router(s) and send them to a syslog server so that it does not affect the production traffic. If
+    debugs are enabled in the script instead, they are generated after the syslog message is triggered  which may not be
+    useful. Here is a list of debugs that you might want to run on the sender of this log and the receiver:
+     
+    debug crypto condition peer ipv4 &lt;peer IP address&gt; debug crypto isakmp debug crypto ipsec debug crypto engine
+     
+    The EEM script is designed to do two things:
+    Turn off the debugs on the receiver when they are collected for 18 seconds after the first syslog message is
+    generated. The delay timer might need to be modified, which is dependent upon the amount of debugs/logs generated.
+    At the same time it disables the debugs, have it send an SNMP trap to the peer, which then disables the debugs on
+    the peer device.
+
+     
+    Cisco Internal Information
+
+    Refer to IOS VPN: Troubleshooting Guide and Tech Tips for more information on how to set up captures.
+     
+     
+     
+
+    SNMP Configuration
+     
+     The Simple Network Management Protocol (SNMP) configurations are shown here:
+     
+    Receiver: ========
+    snmp-server enable traps event-manager
+    snmp-server host 11.1.1.3 public event-manager
+    snmp-server manager
+     
+    Sender: =======
+    snmp-server enable traps event-manager
+    snmp-server host 213.163.222.7 public event-manager
+    snmp-server manager
+     
+      
+     
+
+    Final Script
+    Scripts for the receiver and sender are shown here:
+     
+     
+    Receiver: ======== sh ip int bri | tee /append disk0:hub.txt //To test if this output gets logged to the file called
+    &quot;hub&quot;// conf t ! event manager applet command_hub event syslog pattern &quot;CRYPTO-4-RECVD_PKT_INV_SPI.*srcaddr=11.1.1.3&quot;
+    action 1 cli command &quot;enable&quot; action 2 syslog msg &quot;command_hub is running ...&quot; priority
+    informational action 3 cli command &quot;show crypto sockets | append disk0:hub.txt&quot; action 4 cli command
+    &quot;show crypto isa sa | append disk0:hub.txt&quot; action 5 cli command &quot;show crypto ipsec sa detail |
+    append disk0:hub.txt&quot; action 6 cli command &quot;show dmvpn detail | append disk0:hub.txt&quot; action 7 wait
+    18 action 8 cli command &quot;undebug all&quot;
+    action 8.1 snmp-trap intdata1 2323232 strdata &quot;&quot; action 9 syslog priority informational msg &quot;DONE ON
+    HUB&quot; ! end
+     
+    Sender:
+    =======
+    conf t
+    ! event manager applet spoke_app
+     event snmp-notification oid 1.3.6.1.4.1.9.10.91.1.2.3.1.9. oid-val &quot;2323232&quot; op eq src-ip-address
+    213.163.222.7 maxrun 35
+     action 1.0 syslog msg &quot;Received trap from Hub...&quot;
+    action 2.0 cli command &quot;enable&quot;
+     action 3.0 cli command &quot;undebug all&quot;
+     action 4.0 syslog msg &quot;DONE ON SPOKE&quot;
+    !
+    end
+     
+     
+
+    EEM Script Logs
+    A list of EEM script log messages is shown here: 
+     
+    Receiver: ======= *Mar 12 18:22:10.706: %CRYPTO-4-RECVD_PKT_INV_SPI: decaps: rec'd IPSEC packet has invalid spi for
+    destaddr=213.163.222.7, prot=50, spi=0x68842105(1753489669), srcaddr=11.1.1.3, input interface=Ethernet0/0 *Mar 12
+    18:22:10.727: %HA_EM-6-LOG: command_hub: command_hub is running ... hub# *Mar 12 18:22:30.026: %HA_EM-6-LOG:
+    command_hub: DONE ON HUB
+     
+    Sender: ======= spoke#
+    *Mar 12 18:22:30.542: %HA_EM-6-LOG: spoke_app: Received trap from Hub...
+    *Mar 12 18:22:30.889: %HA_EM-6-LOG: spoke_app: DONE ON SPOKE
+      
+     
+
+    Verification
+     
+    In order to verify the problem has been resolved, enter the show debug command. 
+     
+    Receiver: ======= hub# show debug
+     
+    Sender: ======= spoke# show debug
+     
+      
+     
+
+    Related Information
+    Technical Support &amp; Documentation - Cisco Systems
+
+
+    &#xD;
+</content>
+<contributors>lyndsmit,tac-ws</contributors>
+<cqfScore>2</cqfScore>
+<externalCqf>0</externalCqf>
+<externalUrlList>
+    http://www.cisco.com/c/en/us/support/docs/security-vpn/ipsec-negotiation-ike-protocols/116005-eem-scripts-technologies-tech-note-00.html,http://www.cisco.com/c/en/us/support/docs/security-vpn/ipsec-negotiation-ike-protocols/116005-eem-scripts-technologies-tech-note-00.pdf,http://www.cisco.com/en/US/customer/tech/tk583/tk372/technologies_te
+</externalUrlList>
+<externalViews>5454</externalViews>
+<firstExternalizationDate>0000-00-00 00:00:00</firstExternalizationDate>
+<firstFlagDate>0000-00-00 00:00:00</firstFlagDate>
+<href>/messages/id/100048</href>
+<improvFbId>0</improvFbId>
+<improvFbStatus></improvFbStatus>
+<improvFeedbackUrl></improvFeedbackUrl>
+<improvFlaggerId></improvFlaggerId>
+<improvTkbFlag>0</improvTkbFlag>
+<kudos>12</kudos>
+<labels>Debug,Troubleshooting,Deployment,EEM,VPN,152xx,IPsec</labels>
+<latestExternalizationDate>0000-00-00 00:00:00</latestExternalizationDate>
+<latestFlagDdate>0000-00-00 00:00:00</latestFlagDdate>
+<linkedCases>9</linkedCases>
+<nominatedBy></nominatedBy>
+<origAuthorTteam>GTC_GCE_US_SECURITY</origAuthorTteam>
+<postTime>2012-10-01 08:44:51</postTime>
+<publishedState>PUBLISHED</publishedState>
+<publisherUsername></publisherUsername>
+<spExtIntDate>NULL</spExtIntDate>
+<spExtPubDate>NULL</spExtPubDate>
+<spExtPubVersion>NULL</spExtPubVersion>
+<spExtURL>NULL</spExtURL>
+<spExtUser>NULL</spExtUser>
+<spPreInitUser>NULL</spPreInitUser>
+<spPreIntDate>NULL</spPreIntDate>
+<spPreURL>NULL</spPreURL>
+<spPreviewedDate>NULL</spPreviewedDate>
+<spPreviewedVersion>NULL</spPreviewedVersion>
+<spState>NULL</spState>
+<subject>EEM Scripts used to Troubleshoot Tunnel Flaps Caused by Invalid Security Parameter Indexes</subject>
+<syncdate>2015-10-06 00:40:07</syncdate>
+<tkbId>/boards/id/security_ios_vpn@tkb</tkbId>
+<user>anchacko</user>
+<viewHref>
+    https://techzone.cisco.com/t5/IOS-Virtual-Private-Network-VPN/EEM-Scripts-used-to-Troubleshoot-Tunnel-Flaps-Caused-by-Invalid/ta-p/100048
+</viewHref>
+<views>10950</views>
+</techZoneContent>
+
+
+        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<techZoneContent xmlns="cdetsng" id="100056">
+<boardHref>/boards/id/nms_apps_prime_network@tkb</boardHref>
+<containsVideo>0</containsVideo>
+<content>timeout when opening maps
+    when trying to open a map in network vision and getting a timeout there are several possible root causes for the
+    issue.
+     
+    The most common one is that there are too many events in the system or too many tickets.
+    you can always connect to the DB and validate how many events are they in the active parttion:
+    select count(*) from  networkevent partition(nonarchived);
+    any number higher than 500k should raise a red flag... :)
+     
+    If thats not the issue...
+    there is a possibility that one of the necessary plugins has an error or failed to start. (e.g. link snapshot plugin
+    or the map plugin).
+    you can check that in the avm 11 log file.
+    a possible root cause to fail loading one of those snapshot can be a DB issue (undo tablespace is full for example).
+    It's always good to check avm 11 log file and the DB alert log file.
+
+
+    &#xD;
+</content>
+<contributors>tac-ws</contributors>
+<cqfScore>1</cqfScore>
+<externalCqf>0</externalCqf>
+<externalUrlList></externalUrlList>
+<externalViews>0</externalViews>
+<firstExternalizationDate>0000-00-00 00:00:00</firstExternalizationDate>
+<firstFlagDate>0000-00-00 00:00:00</firstFlagDate>
+<href>/messages/id/100056</href>
+<improvFbId>0</improvFbId>
+<improvFbStatus></improvFbStatus>
+<improvFeedbackUrl></improvFeedbackUrl>
+<improvFlaggerId></improvFlaggerId>
+<improvTkbFlag>0</improvTkbFlag>
+<kudos>0</kudos>
+<labels>Network Vision</labels>
+<latestExternalizationDate>0000-00-00 00:00:00</latestExternalizationDate>
+<latestFlagDdate>0000-00-00 00:00:00</latestFlagDdate>
+<linkedCases>0</linkedCases>
+<nominatedBy></nominatedBy>
+<origAuthorTteam>NMTG SPMABU - Sustaining/Escalation IL</origAuthorTteam>
+<postTime>2012-09-30 11:15:32</postTime>
+<publishedState>INTERNAL</publishedState>
+<publisherUsername></publisherUsername>
+<spExtIntDate>NULL</spExtIntDate>
+<spExtPubDate>NULL</spExtPubDate>
+<spExtPubVersion>NULL</spExtPubVersion>
+<spExtURL>NULL</spExtURL>
+<spExtUser>NULL</spExtUser>
+<spPreInitUser>NULL</spPreInitUser>
+<spPreIntDate>NULL</spPreIntDate>
+<spPreURL>NULL</spPreURL>
+<spPreviewedDate>NULL</spPreviewedDate>
+<spPreviewedVersion>NULL</spPreviewedVersion>
+<spState>NULL</spState>
+<subject>timeout when opening maps</subject>
+<syncdate>2015-10-06 00:40:07</syncdate>
+<tkbId>/boards/id/nms_apps_prime_network@tkb</tkbId>
+<user>oraz</user>
+<viewHref>https://techzone.cisco.com/t5/Prime-Network/timeout-when-opening-maps/ta-p/100056</viewHref>
+<views>5150</views>
+</techZoneContent>
+
+
+        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<techZoneContent xmlns="cdetsng" id="100062">
+<boardHref>/boards/id/ucc_uccx_install@tkb</boardHref>
+<containsVideo>0</containsVideo>
+<content>Syslog Messages definitions in UCCX 9.0(1)
+    There are tens and thousands of Syslog (Alarm) messages which are defined in UCCX today. Currently, there is no
+    holistic view of all these defintions. So, we are providing two formats in which we can view this information. First
+    is the xls documnet format which helps in filtering messages based on the severity of the syslog messages and route
+    destination, etc. The other is the static html document which is a reference to all thh syslog message definitions.
+
+
+    &#xD;
+</content>
+<contributors></contributors>
+<cqfScore>0</cqfScore>
+<externalCqf>0</externalCqf>
+<externalUrlList></externalUrlList>
+<externalViews>0</externalViews>
+<firstExternalizationDate>0000-00-00 00:00:00</firstExternalizationDate>
+<firstFlagDate>0000-00-00 00:00:00</firstFlagDate>
+<href>/messages/id/100062</href>
+<improvFbId>0</improvFbId>
+<improvFbStatus></improvFbStatus>
+<improvFeedbackUrl></improvFeedbackUrl>
+<improvFlaggerId></improvFlaggerId>
+<improvTkbFlag>0</improvTkbFlag>
+<kudos>0</kudos>
+<labels></labels>
+<latestExternalizationDate>0000-00-00 00:00:00</latestExternalizationDate>
+<latestFlagDdate>0000-00-00 00:00:00</latestFlagDdate>
+<linkedCases>0</linkedCases>
+<nominatedBy></nominatedBy>
+<origAuthorTteam>CBABU - India Engineering</origAuthorTteam>
+<postTime>2013-03-22 05:21:45</postTime>
+<publishedState>INTERNAL</publishedState>
+<publisherUsername></publisherUsername>
+<spExtIntDate>NULL</spExtIntDate>
+<spExtPubDate>NULL</spExtPubDate>
+<spExtPubVersion>NULL</spExtPubVersion>
+<spExtURL>NULL</spExtURL>
+<spExtUser>NULL</spExtUser>
+<spPreInitUser>NULL</spPreInitUser>
+<spPreIntDate>NULL</spPreIntDate>
+<spPreURL>NULL</spPreURL>
+<spPreviewedDate>NULL</spPreviewedDate>
+<spPreviewedVersion>NULL</spPreviewedVersion>
+<spState>NULL</spState>
+<subject>Syslog Messages definitions in UCCX 9.0(1)</subject>
+<syncdate>2015-10-05 19:40:59</syncdate>
+<tkbId>/boards/id/ucc_uccx_install@tkb</tkbId>
+<user>anurjain</user>
+<viewHref>
+    https://techzone.cisco.com/t5/Install-Upgrade-Administration/Syslog-Messages-definitions-in-UCCX-9-0-1/ta-p/100062
+</viewHref>
+<views>4012</views>
+</techZoneContent>
+
+
+        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<techZoneContent xmlns="cdetsng" id="100106">
+<boardHref>/boards/id/ucc_uccx_install@tkb</boardHref>
+<containsVideo>0</containsVideo>
+<content>Trouble shooting UCCX server loaded with large and heavy scripts.
+     
+    Large number of applications and heavy script which can  take most of system memory,causing server  getting low in
+    memory and eventually  rebooted.
+
+
+    To verify that we need to  restart the engine and generate a manual heap dump for the engine from the AppAdmin page
+    after all subsystems come into service, and before any calls are in the system.
+
+    Manual hprof after startup will give good idea about the base usage of the applications and scripts without call
+    load
+
+     You can create the the memory dump using following instructions
+
+     In off hours please do the following
+
+
+     Restart node manger from services
+     When system comes back open AppAdmin and go to control center
+    Click on the glasses sign beside the date (for the &quot;cisco Unified CCX Engine row) as shown below.
+
+
+     
+
+     
+     
+     You will be redirected to memory dump page (see folloing image).
+
+     
+
+     
+     
+    Now click on the Dump memory button it will create JVM.log and Hproffile under MIVR folder
+    you can use eclips or other memory analyser tool to analyse the Hprof files or send it to DE's to get further input.
+
+     
+    if you see UCCX server is utilizing most of the memory then we need to tell custummer to follow the following best
+    practice in desiging and develping their applications/script.
+     
+     
+    Best Prctice for desiging Script and applications.
+
+
+    Large Scripts
+
+
+    Care should be taken while deploying very large scripts into the UCCX system. Since large scripts take up the
+    limited memory of the UCCX Engine which is actually shared with all the logic for call processing.
+
+    This is not an issue most of the time, since there is enough space for most needs but since there is no mechanism to
+    judge the optimal size of scripts, this will remain a potential pitfall for the existing releases.
+
+    An equivalent of large scripts is very large VoiceXML scripts. Here again since the whole script is loaded into
+    memory for each invocation (each call) in the parsed form, it can lead to excessive memory usage and subsequent
+    crash. Note that since VoiceXML scripts may be loaded from external web sites, the partner/customer may not be fully
+    aware of
+    its memory needs during execution. Once again such situation can be averted by pre testing these scripts.
+
+
+    Multiple Applications
+
+
+    While large scripts remain a potential issue, creating a huge number of applications which use the same script or
+    very similar scripts can also lead to excessive memory consumption leaving very little for other activities like
+    call processing.
+
+
+    Prompts and Grammars
+
+
+    Prompts, grammars and other run time document objects loaded into UCCX Engine memory during execution can bring down
+    the system if they are too large in size.Such situation can arise if there are large advertisement
+    prompts.
+
+    Excessive Usage of Script Variables (especially Strings)
+
+    Using a large number of string variables coupled with large call volume can lead to excessive memory usage and
+    subsequent crash.
+
+    The same can occur with other variable types. This issue can be curbed by suitable optimization.
+
+    Reading or Parsing large XML files
+
+    This has impact during runtime, depending on the number of instances of the application executing simultaneously,
+    since the XML file will be loaded into memory per application session.
+
+
+    Suggestions                                                             
+
+
+    Again script developers can be imaginative and build logic inside the script to handle calls in different ways for
+    different originating triggers. Thus, a single application can be deployed with multiple triggers. The script can be
+    coded to handle the calls to these triggers slightly differently e.g. playing a different prompt or presenting a
+    different language. Another way of customizing parameters for different triggers is to store the information either
+    in a custom database or in
+    an XML document that can then be read within the script to determine parameter values based on the dialed number.
+
+
+    &#xD;
+</content>
+<contributors>tac-ws</contributors>
+<cqfScore>0</cqfScore>
+<externalCqf>0</externalCqf>
+<externalUrlList></externalUrlList>
+<externalViews>0</externalViews>
+<firstExternalizationDate>0000-00-00 00:00:00</firstExternalizationDate>
+<firstFlagDate>0000-00-00 00:00:00</firstFlagDate>
+<href>/messages/id/100106</href>
+<improvFbId>0</improvFbId>
+<improvFbStatus></improvFbStatus>
+<improvFeedbackUrl></improvFeedbackUrl>
+<improvFlaggerId></improvFlaggerId>
+<improvTkbFlag>0</improvTkbFlag>
+<kudos>0</kudos>
+<labels>IVR</labels>
+<latestExternalizationDate>0000-00-00 00:00:00</latestExternalizationDate>
+<latestFlagDdate>0000-00-00 00:00:00</latestFlagDdate>
+<linkedCases>3</linkedCases>
+<nominatedBy></nominatedBy>
+<origAuthorTteam>TAC RCH Ent IPCC</origAuthorTteam>
+<postTime>2012-10-01 00:22:04</postTime>
+<publishedState>INTERNAL</publishedState>
+<publisherUsername></publisherUsername>
+<spExtIntDate>NULL</spExtIntDate>
+<spExtPubDate>NULL</spExtPubDate>
+<spExtPubVersion>NULL</spExtPubVersion>
+<spExtURL>NULL</spExtURL>
+<spExtUser>NULL</spExtUser>
+<spPreInitUser>NULL</spPreInitUser>
+<spPreIntDate>NULL</spPreIntDate>
+<spPreURL>NULL</spPreURL>
+<spPreviewedDate>NULL</spPreviewedDate>
+<spPreviewedVersion>NULL</spPreviewedVersion>
+<spState>NULL</spState>
+<subject>Trouble shooting UCCX server loaded with large and heavy scripts.</subject>
+<syncdate>2015-10-05 19:40:59</syncdate>
+<tkbId>/boards/id/ucc_uccx_install@tkb</tkbId>
+<user>usahmed</user>
+<viewHref>
+    https://techzone.cisco.com/t5/Install-Upgrade-Administration/Trouble-shooting-UCCX-server-loaded-with-large-and-heavy-scripts/ta-p/100106
+</viewHref>
+<views>5179</views>
+</techZoneContent>

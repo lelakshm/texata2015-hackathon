@@ -1,0 +1,38 @@
+
+Title:
+DHCP over WAN
+
+URL:
+https://supportforums.cisco.com/discussion/9066386/dhcp-over-wan
+
+Statistics: Replies: 9   Avg. Rating: Views: 842   Votes: 0 Shares: 0
+
+Description: p.crane / Oct 19th, 2001
+Hi all I am wondering if someone can help me with the following situation or if there is any documentation on it somewhere. We have 2 buildings connected through a T1 line. In building 1 we are running Windows NT 4.0 Terminal Server running DHCP. In building 2, we have basic clients running Windows, etc and they are using static ip addresses. I would like to have the one central DHCP server so building 2 can access the DHCP server in building one. We have Cisco 2514 series routers. Thanks to anyone that can help. I have this problem too. 0 votes
+
+Reply: svermill / Fri, 10/19/2001 - 08:02
+We just migrated from static IPs to DHCP in our building about two weeks ago (although I wasn't directly involved in setting it up so my advice that follows is somewhat second hand). It is probably easier than you think though. Just set up an IP helper address on the ethernet interface where your clients reside. Looks like: int e0 ip address 20.20.20.1 ip heper-address 10.10.10.1 (this is your DHCP server) All broadcasts using eight different UDP ports (including DHCP/BOOTP) will be forwarded to the ip address that you specify. You can also just specify the subnet instead of the server address if you need to hit more than one server. You can also specify more than one helper address/subnet but the broadcasts will be forwarded to all specified helpers.
+
+Reply: ddshdu / Fri, 10/19/2001 - 10:14
+On the 2514's Ethernet interface in building 2 (client side)configure: ip helper-address x.x.x.x where x.x.x.x is the ip of the dhcp server. This will allow dchp (and other, eg bootp) broadcasts to be relayed over the WAN link to building 1. To limit broadcasts to DCHP only: no ip forward-protocol udp tftp no ip forward-protocol udp dns no ip forward-protocol udp time no ip forward-protocol udp netbios-ns no ip forward-protocol udp netbios-dgm no ip forward-protocol udp tacacs ip forward-protocol udp bootpc Search for "ip helper-address dhcp forward-protocol" on CCO for examples.
+
+Reply: okenobi / Sat, 10/20/2001 - 11:21
+i wounder if in that case i would have to enable ip directed broadcast on that interface ?
+
+Reply: svermill / Sat, 10/20/2001 - 11:29
+I think you have to enable directed broadcast if you use an entire subnet as the helper address. If you specify the IP of the server, you, obviously, would not have to.
+
+Reply: p.crane / Mon, 10/22/2001 - 04:19
+Thanks for your help, I will give this a try
+
+Reply: nareshm / Mon, 10/22/2001 - 12:29
+we also have set up two buildings over a t1. depending on how how you have subneted, you might want to keep traffic separated by setting up another dhcp server. For exmaple at the main site we have 192.168.1.x and the secondary site is 192.168.2.x. Each site has its own dhcp server. The traffic stays seperate and no excess traffic over the t1 is transmitted.
+
+Reply: memam / Tue, 10/23/2001 - 04:35
+The solution of two DHCP servers is much better and should cause lower maintenance burden as well. However, if you insist on the centralized DHCP solution, make sure that you have two pools of IP addresses one for each site and the pool for the remote site is routable by the remote router (i.e. assign the gateway IP for the DHCP server remote pool as the ethernet of the remote router)
+
+Reply: ryan.hicks / Wed, 10/24/2001 - 14:48
+On nt networks make sure you also add the router(config)#no ip forward-protocol udp netbios-dgm and router(config)#no ip forward-protocol udp netbios-ns otherwise you'll have massive broswer elections that cross your WAN This is also listed on Microsoft support web site under ip helper-address
+
+Reply: gongxinping / Wed, 10/24/2001 - 19:39
+You can use IOS's helper function.Assume Dhcp Server is in buildings 1# and you use 2514's e 0 interface to connect computers in building 2#,you can modify the configuration of 2514 as following: int e 0 ip helper x.x.x.x exit x.x.x.x is the address of dhcp server in building 1# You must enable dhcp functions of your dhcp server also.

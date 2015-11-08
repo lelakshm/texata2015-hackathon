@@ -1,0 +1,14 @@
+
+Title:
+7206 and PS strange message log
+
+URL:
+https://supportforums.cisco.com/discussion/9063366/7206-and-ps-strange-message-log
+
+Statistics: Replies: 1   Avg. Rating: Views: 272   Votes: 0 Shares: 0
+
+Description: mvettor / Oct 4th, 2001
+I received these message from a 7206: Oct 3 14:47:04: %ENVM-6-PSLEV: Power Supply 1 state changed from shutdown to normal Oct 4 09:52:00: %ENVM-6-PSLEV: Power Supply 1 state changed from shutdown to normal but no one about the changed from normal to shutdown, why ? Thanks Marco I have this problem too. 0 votes
+
+Reply: lisa.hall / Thu, 10/11/2001 - 07:14
+You might have a bad power supply. Do you get: Power Supply 1 state changed from normal to shutdown Power Supply 1 state changed from shutdown to normal repeatedly or is this just a one time thing?

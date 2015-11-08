@@ -1,0 +1,50 @@
+
+Title:
+CAN NOT TELNET TO ROUTER
+
+URL:
+https://supportforums.cisco.com/discussion/9068051/can-not-telnet-router
+
+Statistics: Replies: 13   Avg. Rating: 5 Views: 1114   Votes: 0 Shares: 0
+
+Description: dsylvester / Oct 25th, 2001
+I am trying to telnet to a router that is configured with a BRI interface (using Ip Unnumbered Ethernet 0) and Ethernet 0 (exampe of ip: 200.200.200.200). The result when I telnet to 200.200.200.200 is: Could not open a connection to host: connection failed. There is no one logged into the router. The router was running IOS 11.*, the same problem exsist, so I upgraded the software to 12.1.7, and problem is still there. The router functions correctly, it routes just fine, you just can't telnet. The router is a 3620. Any help is welcomed! I have this problem too. 0 votes Endorsed by Paolo Bevilacqua olumidebanks about 2 years 3 months ago to be pretty sure of what the problem could be is to explain the error displayed when u enter d command i want you to know it could be non connectivity problem or simply the fact that you are yet to enable enable password or secret,without this been enablepassword or secret configured, telnet becomes partial functional.. See endorsement in context
+
+Reply: gordon.li / Thu, 10/25/2001 - 21:47
+you may have not defined password in line vty.
+
+Reply: Keith.Singleton... / Thu, 10/25/2001 - 23:54
+Check and see if there are any access list applied to your vty interface that may prevent you from telneting in.
+
+Reply: dwyerr@psinet.com / Fri, 10/26/2001 - 02:30
+A cisco, by default, will not allow a vty connection. You will need to do the following router(config)# line vty 0 4 router(config-if)#login router(config-if)#password router(config-if)^z
+
+Reply: thanhhuong-tran / Fri, 10/26/2001 - 04:29
+hi, what is your real error message when you telnet on it ? I don't think it missed passowrd on vty line . In the case, router will respond you " password is not set " TTH
+
+Reply: skleinsasser / Fri, 10/26/2001 - 09:55
+If you have verified that no access-list is set, make sure you have set a default route. (eg. ip route 0.0.0.0 0.0.0.0 200.200.200.1)
+
+Reply: logiczmike / Mon, 10/29/2001 - 13:07
+I think the other gentleman hit it on the head with "line vty 0 4" but the other thing is you need to make sure the computer you are telnet'ing from can actually get to the router. See if you can ping it from your command line. I had a similar issue with a pc that had two nic cards. One was set for a class B address and accessed the Intranet/Internet. The other card I had to set up with in the subnet of the router E0 port so that I could telnet to it.
+
+Reply: michael.chrisco... / Tue, 10/30/2001 - 10:44
+make sure you dont have "transport input none" on the vty
+
+Reply: kjanakiraman / Sat, 11/03/2001 - 00:34
+I think the problem would have been due to the missing line vty config t line vty 0 4 password (password) login You can hyperterm using the console cable and make these changes and try
+
+Reply: wyzykowskir / Sat, 11/03/2001 - 01:27
+be sure to have the following configured: line vty 0 4 login password
+
+Reply: dhpinzon / Wed, 12/12/2001 - 15:02
+si ya revisó las listas de acceso y no encontro restricción, tal vez es porque está o usted o el router detras de algún firewall que impide que circule el trafico tipo telnet.
+
+Reply: jrogalski / Thu, 12/13/2001 - 13:25
+I am still looking to solve a similar problem. After upgrading to IOS 12.2.5 from 12.1(3a)T1, I cannot telnet to the ethernet port (unless on the same network as the ethernet port). The configuration did not change after the upgrade: line vty 0 4 exec-timeout 30 0 password 7 xxxxxxxx logging synchronous login I can ping the ethernet remotly with no trouble, the connection seems to just drop. This occurs on the 3640, 2620, and 1720 routers runing IOS 12.2.5. The routers running 12.1(3a)T1 still work. I am not sure what is going on yet...still looking.
+
+Reply: amitsonik / Sat, 12/15/2001 - 12:02
+You can specify the enable password in the global configuration mode and then also add a login and password in the telnet. Follow the following steps: 3620(config)#enable password ..... 3620(config)#line vty 0 4 3620(config-line)#login 3620(config-line)#password .... 3620(config-line)#^z I hope it was helpfull.
+
+Reply: olumidebanks / Wed, 08/01/2012 - 08:43
+to be pretty sure of what the problem could be is to explain the error displayed when u enter d command i want you to know it could be non connectivity problem or simply the fact that you are yet to enable enable password or secret,without this been enablepassword or secret configured, telnet becomes partial functional..

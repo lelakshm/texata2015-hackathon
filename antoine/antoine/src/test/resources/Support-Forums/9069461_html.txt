@@ -1,0 +1,35 @@
+
+Title:
+Switch port audit
+
+URL:
+https://supportforums.cisco.com/discussion/9069461/switch-port-audit
+
+Statistics: Replies: 8   Avg. Rating: 4.5 Views: 1114   Votes: 0 Shares: 0
+
+Description: tylerto@d25.k12... / Oct 29th, 2001
+Does Cisco have any management software for monitoring port usage? I.E. which ports have/have not been logged in on during a given time period? I have this problem too. 0 votes
+
+Reply: jbrejcha / Tue, 10/30/2001 - 01:01
+The only thing I can think of is to look at the CAM table if there have been any macadress visible for a specific port. A tool that use that type of information is the CW2000 - LMS bundle. Campus Manager - UserTracking functionality. It creates a table where you have macaddress,IP address,port,device, last seen etc... in the same row.
+
+Reply: jacoffey / Wed, 11/14/2001 - 10:49
+You can do a "sho mac" and it will tell you the ammount of traffic accross each port. At the bottom, it will show you the last time the counters were cleared. You could clear the counters wait a couple of days, the do your "sho mac" and see if anyone has been on there.
+
+Reply: vinod.agrahari / Wed, 12/08/2010 - 00:19
+Dear All, Great to see input from you all and it seems very effective also. But to make it more effective ,would like add one more point as use of any software for port audit will not make sense because mac address get refreshed in 20 sec which get cleared  from Mac address table of all the  switch port which is not in used and this activity get done trough ARP protocol. Thank you all very much and correct me if I am wrong any point of time. Regards Vinod Agrahari
+
+Reply: Alain Cadet / Wed, 12/08/2010 - 01:39
+Hi Vinod, A switch is not clearing dynamic mac addresses in its CAM table with ARP.A switch populates its CAM table by looking at src mac address of frames entering the port so he can bind this mac address to this port in a particular vlan. Regards.
+
+Reply: Leo Laohoo / Wed, 12/08/2010 - 01:47
+Try this:  sh int | i protocol | Last input The output will tell you what interface plus the last time the interface saw any traffic.
+
+Reply: ce.srikanth / Thu, 06/05/2014 - 10:25
+Thanks Leo Laohoo, your suggestion helped me a lot. I could do port audit  for many switches with accuracy in short time.
+
+Reply: Leo Laohoo / Thu, 06/05/2014 - 15:14
+sh interface | i Ethernet.*line protocol is down|Last input never, output never Try this one above too.     The line above basically will show all the physical ports that hasn't had any data traffic since the switch was powered up.  
+
+Reply: ganeshh.iyer / Wed, 12/08/2010 - 07:37
+Does Cisco have any management software for monitoring port usage?  I.E. which ports have/have not been logged in on during a given time period? Hi, If you want to see the port usage traffic try configure the switch with SNMP with some server running with software like PRTG or MRTG with which you can see the whole switch individual port bandwidth usage. Hope to Help !! Ganesh.H

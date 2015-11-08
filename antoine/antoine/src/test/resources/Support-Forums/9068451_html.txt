@@ -1,0 +1,17 @@
+
+Title:
+WIC - 1T V.35 Maximum Speed
+
+URL:
+https://supportforums.cisco.com/discussion/9068451/wic-1t-v35-maximum-speed
+
+Statistics: Replies: 2   Avg. Rating: Views: 1720   Votes: 0 Shares: 0
+
+Description: evanyou / Oct 26th, 2001
+What is the maximun speed of the WIC-1T in a Cisco router? I heard that it can support up to 8 Megs. Any truth to this? Thanks, Evan I have this problem too. 0 votes
+
+Reply: jcapazza / Fri, 10/26/2001 - 09:09
+The recommended maximum rate for V.35 is 2.048 Mbps. up to 8 meters jean-denis
+
+Reply: ksewnarain / Fri, 10/26/2001 - 09:41
+The V.35 speed specification is limited to the length of the cable: 2000ft/600m to 4000ft/1200m @ 100kbps, 300ft/90m at 10Mbps. However, Cisco specifies it's maximum speed to be 2Mbs.

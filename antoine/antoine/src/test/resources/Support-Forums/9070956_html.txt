@@ -1,0 +1,23 @@
+
+Title:
+Spanning Tree Protocol
+
+URL:
+https://supportforums.cisco.com/discussion/9070956/spanning-tree-protocol
+
+Statistics: Replies: 4   Avg. Rating: Views: 1347   Votes: 0 Shares: 0
+
+Description: lee.bailey@hull... / Nov 1st, 2001
+Which layer of the OSI does this work at? I assume that as switches are layer 2 devices, STP must work at layer 2 as well? I have this problem too. 0 votes
+
+Reply: millerv / Thu, 11/01/2001 - 09:41
+correct.
+
+Reply: clifford.gormley / Sun, 06/02/2013 - 18:06
+layer 2
+
+Reply: insharie / Mon, 06/03/2013 - 04:39
+Hi Lee, Yes you are perfectly correct, STP works at Layer 2. Please find link below which explains which protocols works at what layer: http://euphoricpranav.blogspot.in/2008/11/list-of-protocols-on-different-7-layer.html Layer 2 protocols (Data Link Layer) * ARCnet * CDP Cisco Discovery Protocol * DCAP Data Link Switching Client Access Protocol * Dynamic Trunking Protocol * Econet * Ethernet * FDDI Fiber Distributed Data Interface * Frame Relay * HDLC High Level Data Link Control * IEEE 802.11 * IEEE 802.16 * LocalTalk * L2F Layer 2 Forwarding Protocol * L2TP Layer 2 Tunneling Protocol * LAPD Link Access Procedures on the D channel * LLDP Link Layer Discovery Protocol * LLDP-MED Link Layer Discovery Protocol - Media Endpoint Discovery * PPP Point-to-Point Protocol * PPTP Point-to-Point Tunneling Protocol * Q.710 Simplified Message Transfer Part * NDP Neighbor Discovery Protocol * SLIP Serial Line Internet Protocol (obsolete) * StarLan * STP Spanning Tree Protocol>>>>>>>>>>>>>>>>>>>>>>>> STP Layer 2. * Token ring * VTP VLAN Trunking Protocol HTH Regards Inayath *Plz rate all usefull posts.
+
+Reply: ravsingh / Tue, 06/04/2013 - 19:25
+It works on Layer 2 as you know that switch is Layer 2 device. To know how it work you can see the below flash tutorial. http://www.cisco.com/warp/public/473/spanning_tree1.swf
