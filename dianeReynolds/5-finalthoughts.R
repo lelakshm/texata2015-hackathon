@@ -1,0 +1,30 @@
+library(boilerpipeR)
+library(corpora)
+library(RKEA)
+library(RWeka)
+library(skmeans)
+library(SnowballC)
+library(tau)
+library(tm)
+library(topicmodels)
+library(wordcloud)
+library(zipfR)
+library(RTextTools)
+library(dplyr)
+library(cluster)
+library(biclust)
+library(ggplot2)
+library(igraph)
+library(fpc)
+
+distances2 <- dist(docs, method="euclidean")
+fit2 <- hclust(d=distances2, method="ward.D")
+
+plot(fit2, hang=-1)
+groups2 <- cutree(fit, k=4)
+rect.hclust(fit2, k=4, border="blue")
+
+kfit2 <- kmeans(distances2,4)
+clusplot(as.matrix(distances2),
+         kfit2$cluster, color=TRUE,
+         shade=TRUE, labels=2, lines=0)
